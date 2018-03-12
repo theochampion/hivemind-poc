@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
 
-import App from './containers/App.container';
-import configureStore from './store/configureStore';
+import App from "./containers/App.container";
+import configureStore from "./store/configureStore";
 
 //Needed for React Developer Tools
 window.React = React;

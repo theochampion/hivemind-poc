@@ -1,10 +1,10 @@
-import { fade } from 'material-ui/utils/colorManipulator'
-import * as Colors from 'material-ui/styles/colors';
-import { spacing, getMuiTheme } from 'material-ui/styles';
+import { fade } from "material-ui/utils/colorManipulator";
+import * as Colors from "material-ui/styles/colors";
+import { spacing, getMuiTheme } from "material-ui/styles";
 
 const rawBaseTheme = {
   ...spacing,
-  fontFamily: 'Roboto, sans-serif',
+  fontFamily: "Roboto, sans-serif",
   palette: {
     primary1Color: Colors.cyan500,
     primary2Color: Colors.cyan700,

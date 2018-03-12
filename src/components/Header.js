@@ -1,7 +1,7 @@
-import React, {Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import AppBar from 'material-ui/AppBar';
+import AppBar from "material-ui/AppBar";
 
 const defaultStyle = {
   marginLeft: 20
@@ -17,7 +17,7 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-          <AppBar title="Hive y'all" />
+        <AppBar title="Hive y'all" />
       </header>
     );
   }
