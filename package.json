@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "compression": "^1.7.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
     "material-ui": "^0.20.0",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
@@ -13,9 +18,12 @@
     "redux": "^3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dist-server": "babel -d ./dist-server ./server -s",
+    "build": "react-scripts build && npm run dist-server",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev-server": "nodemon ./server/dev",
+    "server": "npm run dist-server && node ./dist-server/server.js",
+    "start": "react-scripts start"
   }
 }
