@@ -12,6 +12,8 @@ import StarIcon from "material-ui-icons/Grade";
 import FavoriteIcon from "material-ui-icons/Favorite";
 import FavoriteBorderIcon from "material-ui-icons/FavoriteBorder";
 
+import data from "../data"
+
 const ProjectTags = props => {
   return (
     <div style={{ display: "flex" }}>
@@ -26,7 +28,11 @@ const ProjectStatus = props => {
   return (
     <IconButton onClick={props.onLike}>
       <Typography variant="display1">{props.likes}</Typography>
-      {props.liked ? <FavoriteIcon style={{ margin: "6px" }} /> : <FavoriteBorderIcon style={{ margin: "6px" }} />}
+      {props.liked ? (
+        <FavoriteIcon style={{ margin: "6px" }} />
+      ) : (
+        <FavoriteBorderIcon style={{ margin: "6px" }} />
+      )}
     </IconButton>
   );
 };
@@ -86,16 +92,7 @@ const ProjectContent = props => {
 };
 
 class Project extends Component {
-  state = {
-    name: "AI-Controlled Multi-Pattern Search Radar",
-    quote:
-      "A high gain radar providing Helical, Raster, Palmer-Raster and Palmer-Helical scanning modes, all controlled by a powerful AI",
-    likes: 42,
-    liked: false,
-    tags: ["Electronics", "Arduino", "Machine Learning"],
-    description: "# Description\nA long long description",
-    tabIndex: 0
-  };
+  state = data.project;
 
   _onLike() {
     const { liked } = this.state;
@@ -106,7 +103,15 @@ class Project extends Component {
     this.setState({ tabIndex: data });
   }
   render() {
-    const { name, quote, description, likes, liked, tags, tabIndex } = this.state;
+    const {
+      name,
+      quote,
+      description,
+      likes,
+      liked,
+      tags,
+      tabIndex
+    } = this.state;
     return (
       <div>
         <ProjectHeader
