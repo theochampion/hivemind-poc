@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 // containers
 import Lobby from "./containers/Lobby.container";
 import Login from "./containers/Login.container";
+import Project from "./containers/Project.container";
 
 // layouts for header and spec sidebar
 import DefaultLayout from "./components/DefaultLayout";
@@ -28,6 +29,8 @@ ReactDOM.render(
         <div>
           <DefaultLayout exact path="/" component={Lobby} />
           <SpecLayout path="/login" component={Login} />
+          {/* <SpecLayout path="/project" component={Project} /> */}
+          <DefaultLayout path="/project" component={Project} />
         </div>
       </BrowserRouter>
     </MuiThemeProvider>
