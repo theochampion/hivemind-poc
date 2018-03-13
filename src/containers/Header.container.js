@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 
 import AppBar from "material-ui/AppBar";
-import Avatar from "material-ui/Avatar";
-import IconButton from "material-ui/IconButton";
-import ActionHome from "material-ui/svg-icons/action/home";
+import Toolbar from "material-ui/Toolbar";
+import Typography from "material-ui/Typography";
 
-import FlatButton from "material-ui/FlatButton";
+//const Login = props => <FlatButton label="Login" primary={true} />;
 
-const Login = props => <FlatButton label="Login" primary={true} />;
-
-const Logged = props => <Avatar>T</Avatar>;
+//onst Logged = props => <Avatar>T</Avatar>;
 
 class HeaderContainer extends Component {
   state = {
@@ -21,16 +18,13 @@ class HeaderContainer extends Component {
 
     return (
       <header className="header">
-        <AppBar
-          title="HiveMind"
-          showMenuIconButton={false}
-          iconElementLeft={
-            <IconButton>
-              <ActionHome />
-            </IconButton>
-          }
-          iconElementRight={logged ? <Logged /> : <Login />}
-        />
+        <AppBar position="absolute" className={this.props.appBar}>
+          <Toolbar>
+            <Typography variant="title" color="inherit" noWrap>
+              HiveMind
+            </Typography>
+          </Toolbar>
+        </AppBar>
       </header>
     );
   }

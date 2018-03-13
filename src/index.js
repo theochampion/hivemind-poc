@@ -23,7 +23,7 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <MuiThemeProvider muiTheme={theme}>
+    <MuiThemeProvider>
       <BrowserRouter>
         <div>
           <DefaultLayout exact path="/" component={Lobby} />
