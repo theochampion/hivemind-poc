@@ -6,13 +6,18 @@ import Chip from "material-ui/Chip";
 import Tabs, { Tab } from "material-ui/Tabs";
 import Typography from "material-ui/Typography";
 import AppBar from "material-ui/AppBar";
+import Card, { CardContent, CardMedia } from "material-ui/Card";
+import Grid from "material-ui/Grid";
+import Paper from "material-ui/Paper";
 import ReactMarkdown from "react-markdown";
 
 import StarIcon from "material-ui-icons/Grade";
 import FavoriteIcon from "material-ui-icons/Favorite";
 import FavoriteBorderIcon from "material-ui-icons/FavoriteBorder";
+import UpIcon from "material-ui-icons/KeyboardArrowUp";
+import DownIcon from "material-ui-icons/KeyboardArrowDown";
 
-import data from "../data"
+import data from "../data";
 
 const ProjectTags = props => {
   return (
@@ -34,6 +39,46 @@ const ProjectStatus = props => {
         <FavoriteBorderIcon style={{ margin: "6px" }} />
       )}
     </IconButton>
+  );
+};
+
+const ProjectCards = props => {
+  return (
+    <Grid container style={{ margin: "12px" }}>
+      <Grid container justify="center" alignItems={"center"} spacing={40}>
+      {props.cards.map(card => (
+        <Grid item xs={12} sm={6} lg={3} key={card.title}>
+          <Card>
+            <CardContent>
+              <Typography
+                variant="headline"
+                component="h2"
+                style={{ margin: "12px" }}
+              >
+                {card.title}
+              </Typography>
+              <Typography component="p">{card.description}</Typography>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  margin: "12px"
+                }}
+              >
+                <IconButton>
+                  <UpIcon style={{ height: 38, width: 38 }} />
+                </IconButton>
+                <Typography variant="headline">{card.points}</Typography>
+                <IconButton>
+                  <DownIcon style={{ height: 38, width: 38 }} />
+                </IconButton>
+              </div>
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
+      </Grid>
+    </Grid>
   );
 };
 
@@ -84,7 +129,9 @@ const ProjectContent = props => {
           <ReactMarkdown source={props.description} />
         </div>
         <div>Source file explorer goes here</div>
-        <div>Oh yeah, Trello-like</div>
+        <div>
+          <ProjectCards cards={props.cards} />
+        </div>
         <div>Better than Slack</div>
       </SwipeableViews>
     </div>
@@ -110,7 +157,8 @@ class Project extends Component {
       likes,
       liked,
       tags,
-      tabIndex
+      tabIndex,
+      cards
     } = this.state;
     return (
       <div>
@@ -126,6 +174,7 @@ class Project extends Component {
           tabIndex={tabIndex}
           onTabChange={(e, data) => this._onTabChange(e, data)}
           description={description}
+          cards={cards}
         />
       </div>
     );
