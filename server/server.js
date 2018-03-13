@@ -5,20 +5,29 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const auth = require("./auth");
 const http = require("http");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
 const mongoose = require("mongoose");
+
+const keys = require("./keys");
 
 const PORT = process.env.PORT || 8102;
 
 const app = express()
   .use(compression())
-  .use(morgan("tiny"))
+  .use(morgan("dev"))
   .use(bodyParser.json());
 
-// STATIC FILES
-app.use("/", express.static(path.join(__dirname, "/../dist")));
-app.get("/*", (req, res) => {
-  res.sendFile(path.resolve(path.join(__dirname, "/../dist/index.html")));
-});
+// SESSIONS
+app
+  .use(
+    cookieSession({
+      maxAge: 24 * 60 * 60 * 30, // 30 days
+      keys: [keys.session.cookieKey]
+    })
+  )
+  .use(passport.initialize())
+  .use(passport.session());
 
 // MONGODB
 mongoose.connect("mongodb://localhost:27017/hivemind", () => {

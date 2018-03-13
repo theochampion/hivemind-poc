@@ -10,6 +10,9 @@
 /build
 /dist-server
 
+#sensitive data
+/server/keys.js
+
 # misc
 .DS_Store
 .env.local
