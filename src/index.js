@@ -14,26 +14,19 @@ import SpecLayout from "./components/SpecLayout";
 
 import configureStore from "./store/configureStore";
 
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import theme from "./material_ui_raw_theme_file";
-
-//Needed for React Developer Tools
 window.React = React;
 
 const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <MuiThemeProvider muiTheme={theme}>
       <BrowserRouter>
         <div>
           <DefaultLayout exact path="/" component={Lobby} />
           <SpecLayout path="/login" component={Login} />
-          {/* <SpecLayout path="/project" component={Project} /> */}
-          <DefaultLayout path="/project" component={Project} />
+          <SpecLayout path="/project" component={Project} />
         </div>
       </BrowserRouter>
-    </MuiThemeProvider>
   </Provider>,
   document.getElementById("root")
 );

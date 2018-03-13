@@ -1,50 +1,74 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "material-ui/styles";
+import Drawer from "material-ui/Drawer";
 
-import Paper from "material-ui/Paper";
-import Menu from "material-ui/Menu";
-import Divider from "material-ui/Divider";
-import MenuItem from "material-ui/MenuItem";
+import List, { ListItem, ListItemText } from "material-ui/List";
 import Avatar from "material-ui/Avatar";
 
-import Download from "material-ui/svg-icons/file/file-download";
+import Divider from "material-ui/Divider";
 
-const style = {
-  paper: {
-    display: "inline-block",
-    float: "left",
-    margin: "16px 32px 16px 0"
-  }
-};
+const drawerWidth = 240;
 
-class DrawerContainer extends Component {
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    zIndex: 1,
+    overflow: "hidden",
+    position: "relative",
+    display: "flex"
+  },
+  drawerPaper: {
+    position: "relative",
+    width: drawerWidth
+  },
+  content: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing.unit * 3,
+    minWidth: 0 // So the Typography noWrap works
+  },
+  toolbar: theme.mixins.toolbar
+});
+
+class ClippedDrawer extends Component {
   render() {
+    const { classes } = this.props;
+
     return (
-      <Paper
-      // style={style.paper}
-      >
-        <Menu>
-          <MenuItem
-            // style={{ style.menu }}
-            leftIcon={<Avatar />}
-            primaryText="Theo"
-            secondaryText="Electronic lover"
-          />
-
-          <Divider />
-
-          <MenuItem primaryText="Share" />
-          <MenuItem primaryText="Get links" />
-          <MenuItem primaryText="Download" leftIcon={<Download />} />
-          <Divider />
-          <MenuItem primaryText="Remove" />
-        </Menu>
-      </Paper>
+      <div className={classes.root}>
+        <Drawer
+          variant="permanent"
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
+          <div className={classes.toolbar} />
+          <List>
+            <ListItem>
+              <Avatar>T</Avatar>
+              <ListItemText primary="Théo" secondary="Body builder" />
+            </ListItem>
+            <Divider />
+            <ListItem button>
+              <ListItemText primary="Overview" />
+            </ListItem>
+            <ListItem button component="a" href="#simple-list">
+              <ListItemText primary="Members" />
+            </ListItem>
+          </List>
+        </Drawer>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          {this.props.children}
+        </main>
+      </div>
     );
   }
 }
 
-// DrawerContainer.propTypes = {
-//   addTodo: PropTypes.func.isRequired
-// };
+ClippedDrawer.propTypes = {
+  classes: PropTypes.object.isRequired
+};
 
-export default DrawerContainer;
+export default withStyles(styles)(ClippedDrawer);

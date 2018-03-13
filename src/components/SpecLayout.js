@@ -2,7 +2,7 @@ import React from "react";
 
 import DefaultLayout from "./DefaultLayout";
 
-import DrawerContainer from "../containers/Drawer.container";
+import ClippedDrawerContainer from "../containers/Drawer.container";
 
 const SpecLayout = ({ component: Component, ...rest }) => {
   return (
@@ -10,8 +10,9 @@ const SpecLayout = ({ component: Component, ...rest }) => {
       {...rest}
       component={matchProps => (
         <div>
-          <Component {...matchProps} />
-          <DrawerContainer />
+          <ClippedDrawerContainer>
+            <Component {...matchProps} />
+          </ClippedDrawerContainer>
         </div>
       )}
     />

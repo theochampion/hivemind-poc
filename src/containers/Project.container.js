@@ -3,19 +3,20 @@ import SwipeableViews from "react-swipeable-views";
 
 import IconButton from "material-ui/IconButton";
 import Chip from "material-ui/Chip";
-import { Tabs, Tab } from "material-ui/Tabs";
+import Tabs, { Tab } from "material-ui/Tabs";
+import Typography from "material-ui/Typography";
+import AppBar from "material-ui/AppBar";
+import ReactMarkdown from "react-markdown";
 
-import StarIcon from "material-ui/svg-icons/action/grade";
-import FavoriteIcon from "material-ui/svg-icons/action/favorite";
-import FavoriteBorderIcon from "material-ui/svg-icons/action/favorite-border";
+import StarIcon from "material-ui-icons/Grade";
+import FavoriteIcon from "material-ui-icons/Favorite";
+import FavoriteBorderIcon from "material-ui-icons/FavoriteBorder";
 
 const ProjectTags = props => {
   return (
     <div style={{ display: "flex" }}>
       {props.tags.map(tag => (
-        <Chip key={tag} style={{ margin: "6px" }}>
-          {tag}
-        </Chip>
+        <Chip key={tag} style={{ margin: "6px" }} label={tag} />
       ))}
     </div>
   );
@@ -23,13 +24,9 @@ const ProjectTags = props => {
 
 const ProjectStatus = props => {
   return (
-    <IconButton
-      tooltip={props.likes + " Favorites"}
-      touch={true}
-      tooltipPosition="bottom-right"
-      onClick={props.onLike}
-    >
-      {props.liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+    <IconButton onClick={props.onLike}>
+      <Typography variant="display1">{props.likes}</Typography>
+      {props.liked ? <FavoriteIcon style={{ margin: "6px" }} /> : <FavoriteBorderIcon style={{ margin: "6px" }} />}
     </IconButton>
   );
 };
@@ -37,8 +34,15 @@ const ProjectStatus = props => {
 const ProjectHeader = props => {
   return (
     <div>
-      <div style={{ display: "inline-flex", flex: "grow" }}>
-        <h1>{props.name}</h1>
+      <div
+        style={{
+          display: "inline-flex",
+          flex: "grow",
+          justifyContent: "space-between",
+          width: "100%"
+        }}
+      >
+        <Typography variant="display2">{props.name}</Typography>
         <ProjectStatus
           liked={props.liked}
           likes={props.likes}
@@ -46,9 +50,9 @@ const ProjectHeader = props => {
         />
       </div>
       <ProjectTags tags={props.tags} />
-      <h2 style={{margin: "42px"}}>
-        <i>"{props.description}"</i>
-      </h2>
+      <Typography variant="headline" style={{ margin: "24px" }}>
+        <i>"{props.quote}"</i>
+      </Typography>
     </div>
   );
 };
@@ -56,16 +60,22 @@ const ProjectHeader = props => {
 const ProjectContent = props => {
   return (
     <div>
-      <Tabs onChange={props.onTabChange} value={props.tabIndex}>
-        <Tab label="Decription" value={0} />
-        <Tab label="Files" value={1} />
-        <Tab label="Project Management" value={2} />
-        <Tab label="Conversation" value={3} />
-      </Tabs>
-      <SwipeableViews index={props.tabIndex} onChange={props.onTabChange}>
+      <AppBar position="static" color="default">
+        <Tabs
+          onChange={props.onTabChange}
+          value={props.tabIndex}
+          indicatorColor="primary"
+          textColor="primary"
+        >
+          <Tab label="Decription" value={0} />
+          <Tab label="Files" value={1} />
+          <Tab label="Project Management" value={2} />
+          <Tab label="Conversation" value={3} />
+        </Tabs>
+      </AppBar>
+      <SwipeableViews index={props.tabIndex} onChangeIndex={props.onTabChange}>
         <div>
-          <h2>What is this project about ?</h2>
-          Something very complicated.<br />
+          <ReactMarkdown source={props.description} />
         </div>
         <div>Source file explorer goes here</div>
         <div>Oh yeah, Trello-like</div>
@@ -78,11 +88,12 @@ const ProjectContent = props => {
 class Project extends Component {
   state = {
     name: "AI-Controlled Multi-Pattern Search Radar",
-    description:
+    quote:
       "A high gain radar providing Helical, Raster, Palmer-Raster and Palmer-Helical scanning modes, all controlled by a powerful AI",
     likes: 42,
     liked: false,
     tags: ["Electronics", "Arduino", "Machine Learning"],
+    description: "# Description\nA long long description",
     tabIndex: 0
   };
 
@@ -91,16 +102,16 @@ class Project extends Component {
     this.setState({ liked: !liked });
   }
 
-  _onTabChange(value) {
-    this.setState({ tabIndex: value });
+  _onTabChange(e, data) {
+    this.setState({ tabIndex: data });
   }
   render() {
-    const { name, description, likes, liked, tags, tabIndex } = this.state;
+    const { name, quote, description, likes, liked, tags, tabIndex } = this.state;
     return (
       <div>
         <ProjectHeader
           name={name}
-          description={description}
+          quote={quote}
           likes={likes + liked}
           liked={liked}
           tags={tags}
@@ -108,7 +119,8 @@ class Project extends Component {
         />
         <ProjectContent
           tabIndex={tabIndex}
-          onTabChange={value => this._onTabChange(value)}
+          onTabChange={(e, data) => this._onTabChange(e, data)}
+          description={description}
         />
       </div>
     );
