@@ -1,10 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
+// containers
 import Lobby from "./containers/Lobby.container";
 import Login from "./containers/Login.container";
+
+// layouts for header and spec sidebar
+import DefaultLayout from "./components/DefaultLayout";
+import SpecLayout from "./components/SpecLayout";
 
 import configureStore from "./store/configureStore";
 
@@ -21,8 +26,8 @@ ReactDOM.render(
     <MuiThemeProvider muiTheme={theme}>
       <BrowserRouter>
         <div>
-          <Route exact path="/" component={Lobby} />
-          <Route path="/login" component={Login} />
+          <DefaultLayout exact path="/" component={Lobby} />
+          <SpecLayout path="/login" component={Login} />
         </div>
       </BrowserRouter>
     </MuiThemeProvider>
