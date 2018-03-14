@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
 import Drawer from "material-ui/Drawer";
+import { withRouter } from "react-router-dom";
 
 import List, { ListItem, ListItemText } from "material-ui/List";
 import Avatar from "material-ui/Avatar";
@@ -34,6 +35,7 @@ const styles = theme => ({
 class ClippedDrawer extends Component {
   render() {
     const { classes } = this.props;
+    const { history } = this.props;
 
     return (
       <div className={classes.root}>
@@ -50,11 +52,11 @@ class ClippedDrawer extends Component {
               <ListItemText primary="Théo" secondary="Body builder" />
             </ListItem>
             <Divider />
-            <ListItem button>
+            <ListItem button onClick={() => history.push("/project")}>
               <ListItemText primary="Overview" />
             </ListItem>
-            <ListItem button component="a" href="#simple-list">
-              <ListItemText primary="Members" />
+            <ListItem button onClick={() => history.push("/contributors")}>
+              <ListItemText primary="Contributors" />
             </ListItem>
           </List>
         </Drawer>
@@ -71,4 +73,4 @@ ClippedDrawer.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ClippedDrawer);
+export default withRouter(withStyles(styles)(ClippedDrawer));
