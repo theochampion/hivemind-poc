@@ -12,7 +12,7 @@ module.exports = {
     liked: false,
     tags: ["Electronics", "Arduino", "Machine Learning"],
     description: "# Description\nA long long description",
-    tabIndex: 2,
+    tabIndex: 0,
     cards: [
       {
         title: "Monopulse Tracking",
