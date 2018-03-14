@@ -1,36 +1,40 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import Header from "../components/Header";
-import * as TodoActions from "../actions/todos";
+import { withStyles } from "material-ui/styles";
+
+import { CardActions, CardContent, CardMedia } from "material-ui/Card";
+import Typography from "material-ui/Typography";
+
+import CardMatrix from "../components/CardMatrix";
+
+const styles = theme => ({
+  media: {
+    height: 200
+  }
+});
 
 class Lobby extends Component {
   render() {
-    const { todos, actions } = this.props;
-    return (
+    const { classes } = this.props;
+    const cards = [0, 1, 2, 3].map(value => (
       <div>
-        <Header addTodo={actions.addTodo} />
+        <CardMedia
+          className={classes.media}
+          image="https://hackadaycom.files.wordpress.com/2018/01/kspcon_feat1.jpg?w=800"
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography variant="headline" component="h2">
+            Mega WOW kerbal controller
+          </Typography>
+          <Typography component="p">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
       </div>
-    );
+    ));
+    return <CardMatrix toolbar cards={cards} />;
   }
 }
 
-Lobby.propTypes = {
-  todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
-};
-
-function mapStateToProps(state) {
-  return {
-    todos: state.todos
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(TodoActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Lobby);
+export default withStyles(styles)(Lobby);
