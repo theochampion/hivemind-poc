@@ -1,36 +1,61 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import Header from "../components/Header";
-import * as TodoActions from "../actions/todos";
+import { withStyles } from "material-ui/styles";
+
+import { CardActions, CardContent, CardMedia } from "material-ui/Card";
+import Typography from "material-ui/Typography";
+
+import CardMatrix from "../components/CardMatrix";
+
+const styles = theme => ({
+  media: {
+    height: 200,
+    marginTop: "900px",
+  },
+  bigImage: {
+    width: "100%",
+    height: "800px",
+    alignItems:"left",
+    marginLeft: "auto",
+    marginRight: "auto",
+    right: 0,
+    left: 0,
+    marginTop:"56px",
+    position: "absolute"
+  }
+});
 
 class Lobby extends Component {
   render() {
-    const { todos, actions } = this.props;
-    return (
+    const { classes } = this.props;
+    const cards = [0, 1, 2, 3].map(value => (
       <div>
-        <Header addTodo={actions.addTodo} />
+        <CardMedia
+          className={classes.media}
+          image="https://hackadaycom.files.wordpress.com/2018/01/kspcon_feat1.jpg?w=800"
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography variant="headline" component="h2">
+            Mega WOW kerbal controller
+          </Typography>
+          <Typography component="p">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
       </div>
-    );
+    ));
+  return (
+      <div> 
+        <img 
+          className={classes.bigImage} 
+          src="https://wallpaper.wiki/wp-content/uploads/2016/09/1920x1080-wallpapers11.jpg"
+          title="look at my wallpaper"
+          alignItems="left"
+        />
+        <CardMatrix toolbar cards={cards} />
+      </div>);
   }
 }
 
-Lobby.propTypes = {
-  todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
-};
-
-function mapStateToProps(state) {
-  return {
-    todos: state.todos
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(TodoActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Lobby);
+export default withStyles(styles)(Lobby);
