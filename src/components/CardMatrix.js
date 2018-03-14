@@ -20,7 +20,7 @@ class CardMatrix extends Component {
       <div>
         <div className={toolbar ? classes.toolbar : ""} />
         <Grid container>
-          <Grid container justify="center" alignItems="center" spacing={40}>
+          <Grid container justify="left" alignItems="center" spacing={40}>
             {cards.map(card => (
               <Grid item xs={12} sm={6} lg={3} key={i++}>
                 <Card className={classes.card}>{card}</Card>
