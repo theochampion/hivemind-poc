@@ -27,5 +27,27 @@ module.exports = {
         points: 25
       }
     ]
-  }
+  },
+  contributors: [
+    {
+      name: "Antoine Cauquil",
+      competencies: [
+        "Signal Processing",
+        "Machine Learning",
+        "Embedded OS",
+        "Cryptography"
+      ],
+      reputation: 666
+    },
+    {
+      name: "Thomas Baakel",
+      competencies: ["Street Art", "Wordpress", "Microsoft Office"],
+      reputation: 2
+    },
+    {
+      name: "Nicolas Sebag",
+      competencies: ["Project Management", "Android", "Java"],
+      reputation: 347
+    }
+  ]
 };

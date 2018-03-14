@@ -24,7 +24,7 @@ export const ProjectTags = props => {
   return (
     <div style={{ display: "flex" }}>
       {props.tags.map(tag => (
-        <Chip key={tag} style={{ margin: "6px" }} label={tag} />
+        <Chip key={tag} style={{ margin: "3px" }} label={tag} />
       ))}
     </div>
   );
@@ -90,7 +90,7 @@ export const ProjectHeader = props => {
       </div>
       <ProjectTags tags={props.tags} />
       <Typography variant="headline" style={{ margin: "24px" }}>
-        <i>"{props.quote}"</i>
+        {props.quote ? <i>"{props.quote}"</i> : null}
       </Typography>
     </div>
   );
