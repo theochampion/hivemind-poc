@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withStyles } from "material-ui/styles";
+import { compose } from "redux";
+import { connect } from "react-redux";
 
 import AppBar from "material-ui/AppBar";
 import Toolbar from "material-ui/Toolbar";
@@ -9,6 +11,8 @@ import Button from "material-ui/Button";
 import IconButton from "material-ui/IconButton";
 
 import AddIcon from "material-ui-icons/LibraryAdd";
+
+import * as UserActions from "../actions/user";
 
 const styles = {
   flex: {
@@ -30,14 +34,10 @@ const LoggedActions = props => (
 );
 
 class HeaderContainer extends Component {
-  state = {
-    logged: true
-  };
-
   render() {
-    const { classes } = this.props;
-    const { logged } = this.state;
+    const { classes, isLogged } = this.props;
 
+    console.log("isLogged", this.props.isLogged);
     return (
       <header className="header">
         <AppBar position="absolute">
@@ -50,12 +50,31 @@ class HeaderContainer extends Component {
             >
               HiveMind
             </Typography>
-            <IconButton aria-label="Delete">
-              <AddIcon />
-            </IconButton>
 
-            <Avatar>T</Avatar>
-            {/* {logged ? <LoggedActions /> : <NotLoggedActions />} */}
+            {isLogged ? (
+              <div>
+                <IconButton aria-label="Delete">
+                  <AddIcon />
+                </IconButton>
+                <Button
+                  onClick={() => {
+                    console.log("toggle toggled");
+                    this.props.toggleLog();
+                  }}
+                >
+                  <Avatar src="https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/27541055_10209196634467925_2256573480339693500_n.jpg?oh=273f93266e49ce8e5e1f9bc97b12d052&oe=5B477552" />
+                </Button>
+              </div>
+            ) : (
+              <Button
+                onClick={() => {
+                  console.log("toggle toggled");
+                  this.props.toggleLog();
+                }}
+              >
+                Login
+              </Button>
+            )}
           </Toolbar>
         </AppBar>
       </header>
@@ -63,4 +82,17 @@ class HeaderContainer extends Component {
   }
 }
 
-export default withStyles(styles)(HeaderContainer);
+const mapStateToProps = state => ({ isLogged: state.user.isLogged });
+
+function mapDispatchToProps(dispatch) {
+  return {
+    toggleLog: () => {
+      dispatch(UserActions.toggleLog());
+    }
+  };
+}
+
+export default compose(
+  withStyles(styles),
+  connect(mapStateToProps, mapDispatchToProps)
+)(HeaderContainer);

@@ -12,7 +12,7 @@ import StarIcon from "material-ui-icons/Grade";
 import FavoriteIcon from "material-ui-icons/Favorite";
 import FavoriteBorderIcon from "material-ui-icons/FavoriteBorder";
 
-import data from "../data"
+import data from "../data.json";
 
 const ProjectTags = props => {
   return (

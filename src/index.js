@@ -12,21 +12,23 @@ import Project from "./containers/Project.container";
 import DefaultLayout from "./components/DefaultLayout";
 import SpecLayout from "./components/SpecLayout";
 
-import configureStore from "./store/configureStore";
+import { createStore } from "redux";
+
+import rootReducer from "./reducers";
 
 window.React = React;
 
-const store = configureStore();
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-      <BrowserRouter>
-        <div>
-          <DefaultLayout exact path="/" component={Lobby} />
-          <SpecLayout path="/login" component={Login} />
-          <SpecLayout path="/project" component={Project} />
-        </div>
-      </BrowserRouter>
+    <BrowserRouter>
+      <div>
+        <DefaultLayout exact path="/" component={Lobby} />
+        {/* <SpecLayout path="/login" component={Login} /> */}
+        <SpecLayout path="/project" component={Project} />
+      </div>
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );
