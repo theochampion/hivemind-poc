@@ -19,6 +19,7 @@ import UpIcon from "material-ui-icons/KeyboardArrowUp";
 import DownIcon from "material-ui-icons/KeyboardArrowDown";
 
 import CardMatrix from "./CardMatrix";
+import SourceFiles from "./SourceFiles";
 
 export const ProjectTags = props => {
   return (
@@ -97,6 +98,7 @@ export const ProjectHeader = props => {
 };
 
 export const ProjectContent = props => {
+  console.log("ff", props.files);
   return (
     <div>
       <AppBar position="static" color="default">
@@ -116,7 +118,7 @@ export const ProjectContent = props => {
         <div>
           <ReactMarkdown source={props.description} />
         </div>
-        <div>Source file explorer goes here</div>
+        <SourceFiles files={props.files} />
         <div>
           <ProjectCards cards={props.cards} />
         </div>

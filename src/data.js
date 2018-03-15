@@ -11,8 +11,35 @@ module.exports = {
     likes: 1337,
     liked: false,
     tags: ["Electronics", "Arduino", "Machine Learning"],
-    description: "# Description\nA long long description",
+    description: `## Features\n## Usage\n### Installation\n### Running examples in this repository
+
+    
+    ## Changelog
+    
+    See [changelog](docs/CHANGELOG.md).
+    
+    ## Contributing
+    
+    See the contributing [guidelines](CONTRIBUTING.md).
+    
+    ## Disclaimer
+    
+    This is not an official Google product.`,
     tabIndex: 0,
+    files: [
+      {
+        isFolder: true,
+        name: "src",
+        size: 1034,
+        lmd: "23 hours ago"
+      },
+      {
+        isFolder: false,
+        name: "moc.txt",
+        size: 124,
+        lmd: "12 hours ago"
+      }
+    ],
     cards: [
       {
         title: "Monopulse Tracking",
