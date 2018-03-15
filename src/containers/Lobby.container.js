@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { withStyles } from "material-ui/styles";
 
+import Card from "material-ui/Card";
+
 import { CardActions, CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 
 import CardMatrix from "../components/CardMatrix";
 
 const styles = theme => ({
+  card: {
+    maxWidth: 345
+  },
   media: {
     height: 200
   }
@@ -16,7 +21,7 @@ class Lobby extends Component {
   render() {
     const { classes } = this.props;
     const cards = [0, 1, 2, 3].map(value => (
-      <div>
+      <Card className={classes.card}>
         <CardMedia
           className={classes.media}
           image="https://hackadaycom.files.wordpress.com/2018/01/kspcon_feat1.jpg?w=800"
@@ -31,7 +36,7 @@ class Lobby extends Component {
             species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
-      </div>
+      </Card>
     ));
     return <CardMatrix toolbar cards={cards} />;
   }

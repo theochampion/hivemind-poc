@@ -1,53 +1,24 @@
 import React, { Component } from "react";
+import { withStyles } from "material-ui/styles";
 
 import { CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 import Chip from "material-ui/Chip";
 import Grid from "material-ui/Grid";
+import Card from "material-ui/Card";
 
 import { ProjectHeader } from "../components/Project";
 import CardMatrix from "../components/CardMatrix";
 import data from "../data";
 
-const ContributorsMatrix = props => {
-  console.log(props);
-  var i = 0;
-  const contributors = props.contributors.map(contributor => (
-    <CardContent>
-      <Typography variant="headline" component="h2" style={{ margin: "12px" }}>
-        {contributor.name}
-      </Typography>
-
-      <div style={{ display: "flex" }}>
-        {contributor.competencies.map(tag => (
-          <Chip key={tag} style={{ margin: "3px" }} label={tag} />
-        ))}
-      </div>
-      {/* <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Contemplative Reptile"
-      /> */}
-      {/* <Typography component="p">{card.description}</Typography>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              margin: "12px"
-            }}
-          >
-            <IconButton>
-              <UpIcon style={{ height: 38, width: 38 }} />
-            </IconButton> */}
-      <Typography variant="headline">Rep: {contributor.reputation}</Typography>
-      {/* <IconButton>
-              <DownIcon style={{ height: 38, width: 38 }} />
-            </IconButton> */}
-      {/* </div> */}
-    </CardContent>
-  ));
-  return <CardMatrix cards={contributors} />;
-};
+const styles = theme => ({
+  card: {
+    maxWidth: 345
+  },
+  media: {
+    height: 200
+  }
+});
 
 class Contributors extends Component {
   state = { project: data.project, contributors: data.contributors };
@@ -61,10 +32,36 @@ class Contributors extends Component {
     this.setState({ tabIndex: data });
   }
   render() {
+    console.log(this.state);
+    const { classes } = this.props;
     const { name, description, likes, liked, tags } = this.state.project;
-    const contributors = this.state.contributors;
-    // console.log(this.state)
-    // console.log(contributors)
+
+    const contributorsCards = this.state.contributors.map(contributor => (
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image="https://hackadaycom.files.wordpress.com/2018/01/kspcon_feat1.jpg?w=800"
+        />
+        <CardContent>
+          <Typography
+            variant="headline"
+            component="h2"
+            // style={{ margin: "12px" }}
+          >
+            {contributor.name}
+          </Typography>
+
+          {contributor.competencies.map(tag => (
+            <Chip key={tag} style={{ margin: "3px" }} label={tag} />
+          ))}
+
+          {/* <Typography variant="headline">
+            Rep: {contributor.reputation}
+          </Typography> */}
+        </CardContent>
+      </Card>
+    ));
+
     return (
       <div>
         <ProjectHeader
@@ -75,10 +72,10 @@ class Contributors extends Component {
           tags={tags}
           onLike={() => this._onLike()}
         />
-        <ContributorsMatrix contributors={contributors} />
+        <CardMatrix cards={contributorsCards} />
       </div>
     );
   }
 }
 
-export default Contributors;
+export default withStyles(styles)(Contributors);
