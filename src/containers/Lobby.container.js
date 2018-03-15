@@ -21,6 +21,12 @@ const styles = theme => ({
     left: 0,
     marginTop:"56px",
     position: "absolute"
+  },
+  fontTitle: {
+    fontFamily: 'Roboto, sans-serif',
+    marginTop: "450px",
+    marginLeft: "50%",
+    position: "absolute"
   }
 });
 
@@ -53,7 +59,11 @@ class Lobby extends Component {
           title="look at my wallpaper"
           alignItems="left"
         />
-        <CardMatrix toolbar cards={cards} />
+        <h2
+          className={classes.fontTitle}>
+          Crowd
+          </h2>
+        <CardMatrix toolbar cards={cards}/>
       </div>);
   }
 }
