@@ -39,6 +39,7 @@ module.exports = {
       ],
       reputation: 666,
       img: "https://i.imgur.com/5Tpbaii.jpg",
+      location: "Beijing, China",
       inProject: false,
       commits: 4
     },
@@ -47,6 +48,7 @@ module.exports = {
       competencies: ["Street Art", "Wordpress", "Microsoft Office"],
       reputation: 2,
       img: "https://i.imgur.com/dalEMPI.jpg",
+      location: "Montreuil, France",
       inProject: false,
       commits: 2
     },
@@ -55,6 +57,7 @@ module.exports = {
       competencies: ["Project Management", "iOS", "Java"],
       reputation: 347,
       img: "https://i.imgur.com/DPoFICj.jpg",
+      location: "Stockholm, Sweden",
       inProject: false,
       commits: 9
     },
@@ -63,6 +66,7 @@ module.exports = {
       competencies: ["DJ", "CAM", "Java"],
       reputation: 24,
       img: "https://i.imgur.com/OuboOag.jpg",
+      location: "Dublin, Ireland",
       inProject: true,
       commits: 4
     },
@@ -72,6 +76,7 @@ module.exports = {
       reputation: 42,
       img: "https://i.imgur.com/hVIWg8W.jpg",
       inProject: true,
+      location: "Tomsk, Russia",
       commits: 3
     }
   ]

@@ -40,7 +40,7 @@ class HeaderContainer extends Component {
 
     return (
       <header className="header">
-        <AppBar position="absolute">
+        <AppBar position="absolute" style={{backgroundColor: "#03A9F4"}}>
           <Toolbar className={classes.flex}>
             <Typography
               className={classes.flexstart}
