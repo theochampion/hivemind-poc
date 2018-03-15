@@ -6,6 +6,7 @@ import { CardContent, CardMedia, CardActions } from "material-ui/Card";
 import IconButton from "material-ui/IconButton";
 import Button from "material-ui/Button";
 import Grid from "material-ui/Grid";
+import Card from "material-ui/Card";
 import Chip from "material-ui/Chip";
 import Typography from "material-ui/Typography";
 
@@ -66,7 +67,7 @@ export const ContributorsMatrix = props => {
     // console.log(contributor.inProject, props.editable);
     if (contributor.inProject == props.inProject) {
       contributors.push(
-        <div>
+        <Card>
           <CardMedia style={{ height: 200 }} image={contributor.img} />
           <CardContent>
             <ContributorName name={contributor.name} />
@@ -82,7 +83,7 @@ export const ContributorsMatrix = props => {
           ) : (
             <ContributorActions reputation={contributor.reputation} />
           )}
-        </div>
+        </Card>
       );
     }
   }

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withStyles } from "material-ui/styles";
 
-import Card from "material-ui/Card";
 import Grid from "material-ui/Grid";
 
 const styles = theme => ({
@@ -15,15 +14,14 @@ class CardMatrix extends Component {
   render() {
     const { classes } = this.props;
     const { toolbar, cards } = this.props;
-    var i = 0;
     return (
       <div>
         <div className={toolbar ? classes.toolbar : ""} />
         <Grid container>
-          <Grid container alignItems="center" spacing={40}>
-            {cards.map(card => (
-              <Grid item xs={12} sm={6} lg={3} key={i++}>
-                <Card className={classes.card}>{card}</Card>
+          <Grid container justify="flex-start" alignItems="center" spacing={40}>
+            {cards.map((card, idx) => (
+              <Grid item xs={12} sm={6} lg={3} key={idx}>
+                {card}
               </Grid>
             ))}
           </Grid>

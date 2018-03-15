@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
 
 import Typography from "material-ui/Typography";
 
@@ -18,6 +20,7 @@ class Contributors extends Component {
     this.setState({ tabIndex: data });
   }
   render() {
+    const { classes, isLogged } = this.props;
     const { name, description, likes, liked, tags } = this.state.project;
     const contributors = this.state.contributors;
     return (
@@ -34,14 +37,19 @@ class Contributors extends Component {
           Contributors
         </Typography>
         <ContributorsMatrix inProject={true} contributors={contributors} />
-
-        <Typography variant="display3" style={{ margin: "12px" }}>
-          Advised
-        </Typography>
-        <ContributorsMatrix inProject={false} contributors={contributors} />
+        {isLogged ? (
+          <div>
+            <Typography variant="display3" style={{ margin: "12px" }}>
+              Advised
+            </Typography>
+            <ContributorsMatrix inProject={false} contributors={contributors} />
+          </div>
+        ) : null}
       </div>
     );
   }
 }
 
-export default Contributors;
+const mapStateToProps = state => ({ isLogged: state.user.isLogged });
+
+export default compose(connect(mapStateToProps))(Contributors);
