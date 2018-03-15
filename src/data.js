@@ -64,17 +64,42 @@ module.exports = {
         "Embedded OS",
         "Cryptography"
       ],
-      reputation: 666
+      reputation: 666,
+      img: "https://i.imgur.com/5Tpbaii.jpg",
+      inProject: false,
+      commits: 4
     },
     {
       name: "Thomas Baakel",
       competencies: ["Street Art", "Wordpress", "Microsoft Office"],
-      reputation: 2
+      reputation: 2,
+      img: "https://i.imgur.com/dalEMPI.jpg",
+      inProject: false,
+      commits: 2
     },
     {
       name: "Nicolas Sebag",
-      competencies: ["Project Management", "Android", "Java"],
-      reputation: 347
+      competencies: ["Project Management", "iOS", "Java"],
+      reputation: 347,
+      img: "https://i.imgur.com/DPoFICj.jpg",
+      inProject: false,
+      commits: 9
+    },
+    {
+      name: "Guillaume Baud",
+      competencies: ["DJ", "CAM", "Java"],
+      reputation: 24,
+      img: "https://i.imgur.com/OuboOag.jpg",
+      inProject: true,
+      commits: 4
+    },
+    {
+      name: "Thomas Chevrie",
+      competencies: ["Electronics", "Radar", "Java"],
+      reputation: 42,
+      img: "https://i.imgur.com/hVIWg8W.jpg",
+      inProject: true,
+      commits: 3
     }
   ]
 };

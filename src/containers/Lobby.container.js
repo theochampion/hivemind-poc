@@ -13,7 +13,19 @@ const styles = theme => ({
     maxWidth: 345
   },
   media: {
-    height: 200
+    height: 200,
+    marginTop: "900px",
+  },
+  bigImage: {
+    width: "100%",
+    height: "800px",
+    alignItems:"left",
+    marginLeft: "auto",
+    marginRight: "auto",
+    right: 0,
+    left: 0,
+    marginTop:"56px",
+    position: "absolute"
   }
 });
 
@@ -38,7 +50,16 @@ class Lobby extends Component {
         </CardContent>
       </Card>
     ));
-    return <CardMatrix toolbar cards={cards} />;
+  return (
+      <div> 
+        <img 
+          className={classes.bigImage} 
+          src="https://wallpaper.wiki/wp-content/uploads/2016/09/1920x1080-wallpapers11.jpg"
+          title="look at my wallpaper"
+          alignItems="left"
+        />
+        <CardMatrix toolbar cards={cards} />
+      </div>);
   }
 }
 

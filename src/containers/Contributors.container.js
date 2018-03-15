@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { withStyles } from "material-ui/styles";
 
-import { CardContent, CardMedia } from "material-ui/Card";
+import { withStyles } from "material-ui/styles";
+import { CardContent, CardMedia, CardActions } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 import Chip from "material-ui/Chip";
 import Grid from "material-ui/Grid";
