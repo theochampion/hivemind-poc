@@ -11,35 +11,8 @@ module.exports = {
     likes: 1337,
     liked: false,
     tags: ["Electronics", "Arduino", "Machine Learning"],
-    description: `## Features\n## Usage\n### Installation\n### Running examples in this repository
-
-    
-    ## Changelog
-    
-    See [changelog](docs/CHANGELOG.md).
-    
-    ## Contributing
-    
-    See the contributing [guidelines](CONTRIBUTING.md).
-    
-    ## Disclaimer
-    
-    This is not an official Google product.`,
+    description: "# Description\nA long long description",
     tabIndex: 0,
-    files: [
-      {
-        isFolder: true,
-        name: "src",
-        size: 1034,
-        lmd: "23 hours ago"
-      },
-      {
-        isFolder: false,
-        name: "moc.txt",
-        size: 124,
-        lmd: "12 hours ago"
-      }
-    ],
     cards: [
       {
         title: "Monopulse Tracking",
@@ -60,23 +33,33 @@ module.exports = {
       {
         title: "Robot",
         name: "New Hand Steel Robot",
-        img: "http://www.trossenrobotics.com/Shared/Images/Product/PhantomX-Reactor-Robot-Arm-Kit/reac-1.jpg"
+        img: "http://www.trossenrobotics.com/Shared/Images/Product/PhantomX-Reactor-Robot-Arm-Kit/reac-1.jpg",
+        desc: "Make your own robotic on static base"
       },
       {
         title: "Drone",
         name: "Homemade Drone",
-        img: "https://cdn.instructables.com/F55/QFKF/I12KEORV/F55QFKFI12KEORV.LARGE.jpg"
+        img: "https://cdn.instructables.com/F55/QFKF/I12KEORV/F55QFKFI12KEORV.LARGE.jpg",
+        desc: "I show you how to build a simple homemade drone with 3D print"
       },
       {
         title: "Sound",
-        name: "Génerateur de Son",
+        name: "Guitard Home Made",
         img: "https://i2.wp.com/paris.makerfaire.com/wp-content/uploads/sites/109/2017/07/maker_faire_paris_2017_jour_2_samedi_photo_quentin_chevrier-18-stand-Toystroy.jpg?fit=3490%2C5235&ssl=1",
+        desc: "Wanna do your own guitar with what you have at home ? Let watch my tuto"
       },
       {
         title: "woodenStool",
         name: "Wooden Stool HomeMade",
-        img: "https://i1.wp.com/makezine.com/wp-content/uploads/2017/10/CNC_FamilyStool-4.jpg?resize=1024%2C683&ssl=1"
-      }
+        img: "https://i1.wp.com/makezine.com/wp-content/uploads/2017/10/CNC_FamilyStool-4.jpg?resize=1024%2C683&ssl=1",
+        desc: "Too small ? You dont like the design of stool at shop ? Build your own design WoodenStool to be taller"
+      },
+      {
+        title: "rCar",
+        name: "Autonomous R/C Car",
+        img: "https://i0.wp.com/makezine.com/wp-content/uploads/2017/08/FEATUREDDonkeyVehicleOpeners-4.jpg?resize=1024%2C683&ssl=1",
+        desc: "You want to be part of the futur? Build your own you dont need you to move? You find the good card!"
+      },
     ]
   },
   contributors: [
@@ -88,47 +71,17 @@ module.exports = {
         "Embedded OS",
         "Cryptography"
       ],
-      reputation: 666,
-      img: "https://i.imgur.com/5Tpbaii.jpg",
-      location: "Beijing, China",
-      inProject: false,
-      commits: 4
+      reputation: 666
     },
     {
       name: "Thomas Baakel",
       competencies: ["Street Art", "Wordpress", "Microsoft Office"],
-      reputation: 2,
-      img: "https://i.imgur.com/dalEMPI.jpg",
-      location: "Montreuil, France",
-      inProject: false,
-      commits: 2
+      reputation: 2
     },
     {
       name: "Nicolas Sebag",
-      competencies: ["Project Management", "iOS", "Java"],
-      reputation: 347,
-      img: "https://i.imgur.com/DPoFICj.jpg",
-      location: "Stockholm, Sweden",
-      inProject: false,
-      commits: 9
-    },
-    {
-      name: "Guillaume Baud",
-      competencies: ["DJ", "CAM", "Java"],
-      reputation: 24,
-      img: "https://i.imgur.com/OuboOag.jpg",
-      location: "Dublin, Ireland",
-      inProject: true,
-      commits: 4
-    },
-    {
-      name: "Thomas Chevrie",
-      competencies: ["Electronics", "Radar", "Java"],
-      reputation: 42,
-      img: "https://i.imgur.com/hVIWg8W.jpg",
-      inProject: true,
-      location: "Tomsk, Russia",
-      commits: 3
+      competencies: ["Project Management", "Android", "Java"],
+      reputation: 347
     }
   ]
 };

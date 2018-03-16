@@ -56,7 +56,6 @@ class Lobby extends Component {
         <CardMedia
           className={classes.media}
           image={data.homeCardProject.cards[i].img} 
-          //title={data.homeCardProject.cards[i].title}
         />
         <CardContent>
           <Typography variant="headline" component="h2">
@@ -66,7 +65,6 @@ class Lobby extends Component {
             {data.homeCardProject.cards[i++].desc}
           </Typography>
         </CardContent>
-        {this.incrementVar.bind(this)}
       </div>
     ));
     return (
