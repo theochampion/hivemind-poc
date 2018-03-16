@@ -11,8 +11,35 @@ module.exports = {
     likes: 1337,
     liked: false,
     tags: ["Electronics", "Arduino", "Machine Learning"],
-    description: "# Description\nA long long description",
+    description: `## Features\n## Usage\n### Installation\n### Running examples in this repository
+
+    
+    ## Changelog
+    
+    See [changelog](docs/CHANGELOG.md).
+    
+    ## Contributing
+    
+    See the contributing [guidelines](CONTRIBUTING.md).
+    
+    ## Disclaimer
+    
+    This is not an official Google product.`,
     tabIndex: 0,
+    files: [
+      {
+        isFolder: true,
+        name: "src",
+        size: 1034,
+        lmd: "23 hours ago"
+      },
+      {
+        isFolder: false,
+        name: "moc.txt",
+        size: 124,
+        lmd: "12 hours ago"
+      }
+    ],
     cards: [
       {
         title: "Monopulse Tracking",
@@ -61,17 +88,47 @@ module.exports = {
         "Embedded OS",
         "Cryptography"
       ],
-      reputation: 666
+      reputation: 666,
+      img: "https://i.imgur.com/5Tpbaii.jpg",
+      location: "Beijing, China",
+      inProject: false,
+      commits: 4
     },
     {
       name: "Thomas Baakel",
       competencies: ["Street Art", "Wordpress", "Microsoft Office"],
-      reputation: 2
+      reputation: 2,
+      img: "https://i.imgur.com/dalEMPI.jpg",
+      location: "Montreuil, France",
+      inProject: false,
+      commits: 2
     },
     {
       name: "Nicolas Sebag",
-      competencies: ["Project Management", "Android", "Java"],
-      reputation: 347
+      competencies: ["Project Management", "iOS", "Java"],
+      reputation: 347,
+      img: "https://i.imgur.com/DPoFICj.jpg",
+      location: "Stockholm, Sweden",
+      inProject: false,
+      commits: 9
+    },
+    {
+      name: "Guillaume Baud",
+      competencies: ["DJ", "CAM", "Java"],
+      reputation: 24,
+      img: "https://i.imgur.com/OuboOag.jpg",
+      location: "Dublin, Ireland",
+      inProject: true,
+      commits: 4
+    },
+    {
+      name: "Thomas Chevrie",
+      competencies: ["Electronics", "Radar", "Java"],
+      reputation: 42,
+      img: "https://i.imgur.com/hVIWg8W.jpg",
+      inProject: true,
+      location: "Tomsk, Russia",
+      commits: 3
     }
   ]
 };

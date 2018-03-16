@@ -23,8 +23,10 @@ class Project extends Component {
       liked,
       tags,
       tabIndex,
-      cards
+      cards,
+      files
     } = this.state;
+
     return (
       <div>
         <ProjectHeader
@@ -40,6 +42,7 @@ class Project extends Component {
           onTabChange={(e, data) => this._onTabChange(e, data)}
           description={description}
           cards={cards}
+          files={files}
         />
       </div>
     );

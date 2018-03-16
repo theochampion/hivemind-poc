@@ -6,6 +6,7 @@ import { withRouter } from "react-router-dom";
 
 import List, { ListItem, ListItemText } from "material-ui/List";
 import Avatar from "material-ui/Avatar";
+import Button from "material-ui/Button";
 
 import Divider from "material-ui/Divider";
 
@@ -48,8 +49,11 @@ class ClippedDrawer extends Component {
           <div className={classes.toolbar} />
           <List>
             <ListItem>
-              <Avatar>T</Avatar>
-              <ListItemText primary="Théo" secondary="Body builder" />
+              <Avatar src="https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/27541055_10209196634467925_2256573480339693500_n.jpg?oh=273f93266e49ce8e5e1f9bc97b12d052&oe=5B477552" />
+              <ListItemText
+                primary="Théo Champion"
+                secondary="Code enthusiast"
+              />
             </ListItem>
             <Divider />
             <ListItem button onClick={() => history.push("/project")}>
@@ -57,6 +61,24 @@ class ClippedDrawer extends Component {
             </ListItem>
             <ListItem button onClick={() => history.push("/contributors")}>
               <ListItemText primary="Contributors" />
+            </ListItem>
+            <ListItem>
+              <Button
+                variant="raised"
+                color="secondary"
+                className={classes.button}
+              >
+                Discord
+              </Button>
+            </ListItem>
+            <ListItem>
+              <Button
+                variant="raised"
+                color="primary"
+                className={classes.button}
+              >
+                Github
+              </Button>
             </ListItem>
           </List>
         </Drawer>

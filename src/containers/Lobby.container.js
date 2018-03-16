@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withStyles } from "material-ui/styles";
 
+import Card from "material-ui/Card";
+
 import { CardActions, CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 
@@ -8,6 +10,9 @@ import CardMatrix from "../components/CardMatrix";
 import data from "../data";
 
 const styles = theme => ({
+  card: {
+    maxWidth: 345
+  },
   media: {
     height: 200,
     marginTop: "900px",
