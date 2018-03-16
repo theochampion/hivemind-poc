@@ -5,6 +5,7 @@ import { CardActions, CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 
 import CardMatrix from "../components/CardMatrix";
+import data from "../data";
 
 const styles = theme => ({
   media: {
@@ -31,24 +32,32 @@ const styles = theme => ({
 });
 
 class Lobby extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {count: 0};
+  }
+  incrementVar(count){
+    this.setState({
+      count: this.state.count + 1}); 
+    }
   render() {
     const { classes } = this.props;
-    const cards = [0, 1, 2, 3].map(value => (
+    const cards = data.homeCardProject.cards.map(cards => (
       <div>
         <CardMedia
           className={classes.media}
-          image="https://hackadaycom.files.wordpress.com/2018/01/kspcon_feat1.jpg?w=800"
-          title="Contemplative Reptile"
+          image={data.homeCardProject.cards[this.state.count].img} 
+          title={data.homeCardProject.cards[this.state.count].title}
         />
         <CardContent>
           <Typography variant="headline" component="h2">
-            Mega WOW kerbal controller
+          {data.homeCardProject.cards[this.state.count].name}
           </Typography>
           <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {data.homeCardProject.cards[this.state.count].desc}
           </Typography>
         </CardContent>
+        {this.incrementVar.bind(this)}
       </div>
     ));
   return (

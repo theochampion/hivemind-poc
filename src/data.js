@@ -28,6 +28,30 @@ module.exports = {
       }
     ]
   },
+  homeCardProject: {
+    cards: [
+      {
+        title: "Robot",
+        name: "New Hand Steel Robot",
+        img: "http://www.trossenrobotics.com/Shared/Images/Product/PhantomX-Reactor-Robot-Arm-Kit/reac-1.jpg"
+      },
+      {
+        title: "Drone",
+        name: "Homemade Drone",
+        img: "https://cdn.instructables.com/F55/QFKF/I12KEORV/F55QFKFI12KEORV.LARGE.jpg"
+      },
+      {
+        title: "Sound",
+        name: "Génerateur de Son",
+        img: "https://i2.wp.com/paris.makerfaire.com/wp-content/uploads/sites/109/2017/07/maker_faire_paris_2017_jour_2_samedi_photo_quentin_chevrier-18-stand-Toystroy.jpg?fit=3490%2C5235&ssl=1",
+      },
+      {
+        title: "woodenStool",
+        name: "Wooden Stool HomeMade",
+        img: "https://i1.wp.com/makezine.com/wp-content/uploads/2017/10/CNC_FamilyStool-4.jpg?resize=1024%2C683&ssl=1"
+      }
+    ]
+  },
   contributors: [
     {
       name: "Antoine Cauquil",
