@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withStyles } from "material-ui/styles";
-
+import  brain from "../brain.jpg"
 import { CardActions, CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 
@@ -9,7 +9,7 @@ import CardMatrix from "../components/CardMatrix";
 const styles = theme => ({
   media: {
     height: 200,
-    marginTop: "900px"
+    marginTop: "0px"
   },
   bigImage: {
     width: "100%"
@@ -20,7 +20,7 @@ const styles = theme => ({
     left: "30%",
     fontSize: "125px",
     color: "white",
-    transform: "translate(-40%, -50%)"
+    transform: "translate(-50%, -50%)"
   },
   fontDesc: {
     top: "60%",
@@ -28,7 +28,7 @@ const styles = theme => ({
     position: "absolute",
     fontSize: "75px",
     color: "white",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-40%, -50%)"
   }
 });
 
@@ -63,11 +63,11 @@ class Lobby extends Component {
         >
           <img
             className={classes.bigImage}
-            src="https://wallpaper.wiki/wp-content/uploads/2016/09/1920x1080-wallpapers11.jpg"
+            src={brain}
             title="look at my wallpaper"
           />
-          <h2 className={classes.fontTitle}>HIVE MIND :</h2>
-          <text className={classes.fontDesc}>Do It Together</text>
+          <h2 className={classes.fontTitle}>HiveMind </h2>
+          <text className={classes.fontDesc}>Make It Together</text>
         </div>
         <CardMatrix toolbar cards={cards} />
       </div>
