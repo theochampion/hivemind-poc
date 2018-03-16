@@ -50,19 +50,20 @@ class Lobby extends Component {
     }
   render() {
     const { classes } = this.props;
+    var i = 0;
     const cards = data.homeCardProject.cards.map(cards => (
       <div>
         <CardMedia
           className={classes.media}
-          image={data.homeCardProject.cards[this.state.count].img} 
-          title={data.homeCardProject.cards[this.state.count].title}
+          image={data.homeCardProject.cards[i].img} 
+          //title={data.homeCardProject.cards[i].title}
         />
         <CardContent>
           <Typography variant="headline" component="h2">
-          {data.homeCardProject.cards[this.state.count].name}
+            {data.homeCardProject.cards[i].name}
           </Typography>
           <Typography component="p">
-            {data.homeCardProject.cards[this.state.count].desc}
+            {data.homeCardProject.cards[i++].desc}
           </Typography>
         </CardContent>
         {this.incrementVar.bind(this)}
