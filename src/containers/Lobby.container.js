@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import { withStyles } from "material-ui/styles";
-<<<<<<< HEAD
 
 import Card from "material-ui/Card";
-
-=======
-import  brain from "../brain.jpg"
->>>>>>> homePage
+import brain from "../brain.jpg"
 import { CardActions, CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 
