@@ -25,7 +25,11 @@ export const ProjectTags = props => {
   return (
     <div style={{ display: "flex" }}>
       {props.tags.map(tag => (
-        <Chip key={tag} style={{ margin: "3px" }} label={tag} />
+        <Chip
+          key={tag}
+          style={{ margin: "3px", color: "white", backgroundColor: "#03A9F4" }}
+          label={tag}
+        />
       ))}
     </div>
   );

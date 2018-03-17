@@ -24,23 +24,13 @@ const styles = {
   }
 };
 
-const NotLoggedActions = props => <Button>Login</Button>;
-
-const LoggedActions = props => (
-  <span>
-    <Button>Add</Button>
-    <Avatar>T</Avatar>
-  </span>
-);
-
 class HeaderContainer extends Component {
   render() {
     const { classes, isLogged } = this.props;
 
-    console.log("isLogged", this.props.isLogged);
     return (
       <header className="header">
-        <AppBar position="absolute">
+        <AppBar position="absolute" style={{ backgroundColor: "#03A9F4" }}>
           <Toolbar className={classes.flex}>
             <Typography
               className={classes.flexstart}
@@ -54,11 +44,12 @@ class HeaderContainer extends Component {
             {isLogged ? (
               <div>
                 <IconButton aria-label="Delete">
-                  <AddIcon />
+                  <AddIcon 
+                  style={{color: "white"}}
+                  />
                 </IconButton>
                 <Button
                   onClick={() => {
-                    console.log("toggle toggled");
                     this.props.toggleLog();
                   }}
                 >
@@ -67,8 +58,8 @@ class HeaderContainer extends Component {
               </div>
             ) : (
               <Button
+                style={{ color: "white" }}
                 onClick={() => {
-                  console.log("toggle toggled");
                   this.props.toggleLog();
                 }}
               >

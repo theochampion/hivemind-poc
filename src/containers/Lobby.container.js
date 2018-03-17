@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withStyles } from "material-ui/styles";
 
 import Card from "material-ui/Card";
-
+import brain from "../brain.jpg"
 import { CardActions, CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 
@@ -14,18 +14,26 @@ const styles = theme => ({
   },
   media: {
     height: 200,
-    marginTop: "900px",
+    marginTop: "0px"
   },
   bigImage: {
-    width: "100%",
-    height: "800px",
-    alignItems:"left",
-    marginLeft: "auto",
-    marginRight: "auto",
-    right: 0,
-    left: 0,
-    marginTop:"56px",
-    position: "absolute"
+    width: "100%"
+  },
+  fontTitle: {
+    position: "absolute",
+    top: "40%",
+    left: "30%",
+    fontSize: "125px",
+    color: "white",
+    transform: "translate(-50%, -50%)"
+  },
+  fontDesc: {
+    top: "60%",
+    left: "30%",
+    position: "absolute",
+    fontSize: "75px",
+    color: "white",
+    transform: "translate(-40%, -50%)"
   }
 });
 
@@ -50,16 +58,25 @@ class Lobby extends Component {
         </CardContent>
       </Card>
     ));
-  return (
-      <div> 
-        <img 
-          className={classes.bigImage} 
-          src="https://wallpaper.wiki/wp-content/uploads/2016/09/1920x1080-wallpapers11.jpg"
-          title="look at my wallpaper"
-          alignItems="left"
-        />
+    return (
+      <div>
+        <div
+          style={{
+            position: "relative",
+            textAlign: "center"
+          }}
+        >
+          <img
+            className={classes.bigImage}
+            src={brain}
+            title="look at my wallpaper"
+          />
+          <h2 className={classes.fontTitle}>HiveMind </h2>
+          <text className={classes.fontDesc}>Make It Together</text>
+        </div>
         <CardMatrix toolbar cards={cards} />
-      </div>);
+      </div>
+    );
   }
 }
 
