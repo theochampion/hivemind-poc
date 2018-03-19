@@ -91,31 +91,31 @@ module.exports = {
         title: "Robot",
         name: "New Hand Steel Robot",
         img: "http://www.trossenrobotics.com/Shared/Images/Product/PhantomX-Reactor-Robot-Arm-Kit/reac-1.jpg",
-        desc: "Make your own robotic on static base"
+        desc: "In this tutorial, i built my own robot arm! That was a lot of fun!"
       },
       {
         title: "Drone",
         name: "Homemade Drone",
         img: "https://cdn.instructables.com/F55/QFKF/I12KEORV/F55QFKFI12KEORV.LARGE.jpg",
-        desc: "I show you how to build a simple homemade drone with 3D print"
+        desc: "Building a quadricopter with materials that are easily findable in shops"
       },
       {
         title: "Sound",
         name: "Guitard Home Made",
         img: "https://i2.wp.com/paris.makerfaire.com/wp-content/uploads/sites/109/2017/07/maker_faire_paris_2017_jour_2_samedi_photo_quentin_chevrier-18-stand-Toystroy.jpg?fit=3490%2C5235&ssl=1",
-        desc: "Wanna do your own guitar with what you have at home ? Let watch my tuto"
+        desc: "If you ever thought building your own guitar, start here, with materials you can find at home."
       },
       {
         title: "woodenStool",
         name: "Wooden Stool HomeMade",
         img: "https://i1.wp.com/makezine.com/wp-content/uploads/2017/10/CNC_FamilyStool-4.jpg?resize=1024%2C683&ssl=1",
-        desc: "Too small ? You dont like the design of stool at shop ? Build your own design WoodenStool to be taller"
+        desc: "This tutorial will explain you the how I made a wooden stool using Modern builds design."
       },
       {
         title: "rCar",
         name: "Autonomous R/C Car",
         img: "https://i0.wp.com/makezine.com/wp-content/uploads/2017/08/FEATUREDDonkeyVehicleOpeners-4.jpg?resize=1024%2C683&ssl=1",
-        desc: "You want to be part of the futur? Build your own you dont need you to move? You find the good card!"
+        desc: "Make your own RC car at home using cheap and resistant materials"
       },
     ]
   },
