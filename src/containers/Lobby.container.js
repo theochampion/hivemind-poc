@@ -44,10 +44,6 @@ class Lobby extends Component {
     super(props);
     this.state = {count: 0};
   }
-  incrementVar(count){
-    this.setState({
-      count: this.state.count + 1}); 
-    }
   render() {
     const { classes } = this.props;
     var i = 0;
