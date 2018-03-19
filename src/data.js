@@ -7,7 +7,7 @@ module.exports = {
   project: {
     name: "Low table for the 21st Century",
     quote:
-      "A modular multifunction low table that can implements cutting-edge technology features",
+      "A modular multifunction low table that can implement cutting-edge technology features",
     likes: 1336,
     liked: false,
     tags: ["Woodwork", "Arduino", "Raspberry Pi"],
@@ -25,7 +25,7 @@ module.exports = {
     ## Disclaimer
     
     This is not an official Google product.`,
-    tabIndex: 0,
+    tabIndex: 3,
     files: [
       {
         isFolder: true,
@@ -88,6 +88,25 @@ module.exports = {
         points: 25,
         contributors: 3,
         commits: 5
+      }
+    ],
+    conversation: [
+      {
+        name: "Guillaume Baud",
+        msg:
+          "Someone posted a request of pneumatic feets, I found this is a good idea"
+      },
+      {
+        name: "Thomas Chevrie",
+        msg: "Yes I love it! Do you know someone who can do this?"
+      },
+      {
+        name: "Guillaume Baud",
+        msg: "Not really, maybe we could look at the suggested contributors"
+      },
+      {
+        name: "Thomas Chevrie",
+        msg: "Yes, Antoine Cauquil seems to be a good choice!"
       }
     ]
   },

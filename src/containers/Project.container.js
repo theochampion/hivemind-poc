@@ -24,7 +24,8 @@ class Project extends Component {
       tags,
       tabIndex,
       cards,
-      files
+      files,
+      conversation
     } = this.state;
 
     return (
@@ -43,6 +44,7 @@ class Project extends Component {
           description={description}
           cards={cards}
           files={files}
+          messages={conversation}
         />
       </div>
     );

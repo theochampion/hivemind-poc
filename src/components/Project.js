@@ -1,5 +1,5 @@
 import React from "react";
-
+import TextField from "material-ui/TextField";
 import SwipeableViews from "react-swipeable-views";
 
 import IconButton from "material-ui/IconButton";
@@ -76,14 +76,14 @@ export const ProjectCards = props => {
           <IconButton>
             <DownIcon style={{ height: 38, width: 38 }} />
           </IconButton>
-        <IconButton aria-label="Commits">
-          {card.commits}
-          <CommitIcon />
-        </IconButton>
-        <IconButton aria-label="Commits">
-          {card.contributors}
-          <ContributorsIcon />
-        </IconButton>
+          <IconButton aria-label="Commits">
+            {card.commits}
+            <CommitIcon />
+          </IconButton>
+          <IconButton aria-label="Commits">
+            {card.contributors}
+            <ContributorsIcon />
+          </IconButton>
         </div>
       </CardContent>
     </Card>
@@ -117,6 +117,48 @@ export const ProjectHeader = props => {
   );
 };
 
+export const ProjectConversation = props => {
+  const messages = props.messages.map((message, i) => (
+    <div key={i}>
+      <div>
+        <Typography>{message.name}</Typography>
+      </div>
+      <div>
+        <Chip
+          style={{
+            margin: "3px",
+            color: i % 2 === 0 ? "white" : "black",
+            backgroundColor: i % 2 === 0 ? "#03A9F4" : null,
+            marginBottom: "1em"
+          }}
+          label={message.msg}
+        />
+      </div>
+    </div>
+  ));
+  // return <CardMatrix toolbar cards={cards} />;
+  return (
+    <div
+      style={{
+        margin: "2em",
+        height: "100%",
+        // display: "inline-flex",
+        //flexDirection: "column",
+        // flex: "grow",
+        //justifyContent: "space-between"
+      }}
+    >
+      {messages}
+      <TextField
+        id="name"
+        label="Message"
+        style={{ width: "100%", marginBottom: "1em"}}
+
+      />
+    </div>
+  );
+};
+
 export const ProjectContent = props => {
   console.log("ff", props.files);
   return (
@@ -142,7 +184,9 @@ export const ProjectContent = props => {
         <div>
           <ProjectCards cards={props.cards} />
         </div>
-        <div>Better than Slack</div>
+        <div>
+          <ProjectConversation messages={props.messages} />
+        </div>
       </SwipeableViews>
     </div>
   );
