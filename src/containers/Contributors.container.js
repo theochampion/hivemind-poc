@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import Typography from "material-ui/Typography";
 
-// import { ProjectHeader } from "../components/Project";
+import { ProjectHeader } from "../components/Project";
 import { ContributorsMatrix } from "../components/Contributor";
 import data from "../data";
 

@@ -99,6 +99,7 @@ export const ProjectHeader = props => {
 };
 
 export const ProjectContent = props => {
+  console.log("ff", props.files);
   return (
     <div>
       <AppBar position="static" color="default">

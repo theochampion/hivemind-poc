@@ -10,6 +10,7 @@ import Table, {
 import Paper from "material-ui/Paper";
 
 const SourceFiles = ({ files }) => {
+  console.log("fe", files);
   return (
     <Paper style={{ marginTop: "2em" }}>
       <Table>
