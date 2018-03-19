@@ -16,15 +16,18 @@ class CardMatrix extends Component {
     const { toolbar, cards } = this.props;
     return (
       <div>
-        <div className={toolbar ? classes.toolbar : ""} />
-        <Grid container>
-          <Grid container justify="flex-start" alignItems="center" spacing={40}>
-            {cards.map((card, idx) => (
-              <Grid item xs={12} sm={6} lg={3} key={idx}>
-                {card}
-              </Grid>
-            ))}
-          </Grid>
+        <Grid
+          container
+          justify="flex-start"
+          alignItems="center"
+          spacing={40}
+          style={{ width: "100%", marginTop: "1em" }}
+        >
+          {cards.map((card, idx) => (
+            <Grid item xs={12} sm={6} lg={3} key={idx}>
+              {card}
+            </Grid>
+          ))}
         </Grid>
       </div>
     );
