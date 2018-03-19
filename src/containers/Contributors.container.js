@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import Typography from "material-ui/Typography";
 
-import { ProjectHeader } from "../components/Project";
+// import { ProjectHeader } from "../components/Project";
 import { ContributorsMatrix } from "../components/Contributor";
 import data from "../data";
 
@@ -16,12 +16,20 @@ class Contributors extends Component {
     this.setState({ liked: !liked });
   }
 
+  _onRecruit(name) {
+    const contributors = this.state.contributors;
+    console.log(name)
+    for (var i in contributors) {
+      if (contributors[i].name === name) contributors[i].inProject = true;
+    }
+  }
+
   _onTabChange(e, data) {
     this.setState({ tabIndex: data });
   }
   render() {
-    const { classes, isLogged } = this.props;
-    const { name, description, likes, liked, tags } = this.state.project;
+    const { isLogged } = this.props;
+    // const { name, description, likes, liked, tags } = this.state.project;
     const contributors = this.state.contributors;
     return (
       <div>
@@ -40,9 +48,13 @@ class Contributors extends Component {
         {isLogged ? (
           <div>
             <Typography variant="display3" style={{ margin: "12px" }}>
-              Advised
+              Suggested
             </Typography>
-            <ContributorsMatrix inProject={false} contributors={contributors} />
+            <ContributorsMatrix
+              inProject={false}
+              contributors={contributors}
+              onRecruit={(e, data) => console.log(data)}
+            />
           </div>
         ) : null}
       </div>
