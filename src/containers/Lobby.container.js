@@ -3,7 +3,7 @@ import { withStyles } from "material-ui/styles";
 
 import Card from "material-ui/Card";
 
-import { CardActions, CardContent, CardMedia } from "material-ui/Card";
+import { CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 
 import CardMatrix from "../components/CardMatrix";
@@ -14,17 +14,17 @@ const styles = theme => ({
   },
   media: {
     height: 200,
-    marginTop: "900px",
+    marginTop: "900px"
   },
   bigImage: {
     width: "100%",
     height: "800px",
-    alignItems:"left",
+    alignItems: "left",
     marginLeft: "auto",
     marginRight: "auto",
     right: 0,
     left: 0,
-    marginTop:"56px",
+    marginTop: "56px",
     position: "absolute"
   }
 });
@@ -50,16 +50,18 @@ class Lobby extends Component {
         </CardContent>
       </Card>
     ));
-  return (
-      <div> 
-        <img 
-          className={classes.bigImage} 
+    return (
+      <div>
+        <img
+          alt=""
+          className={classes.bigImage}
           src="https://wallpaper.wiki/wp-content/uploads/2016/09/1920x1080-wallpapers11.jpg"
           title="look at my wallpaper"
           alignItems="left"
         />
         <CardMatrix toolbar cards={cards} />
-      </div>);
+      </div>
+    );
   }
 }
 

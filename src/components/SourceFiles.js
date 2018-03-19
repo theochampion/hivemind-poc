@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import Table, {
   TableBody,
@@ -10,7 +10,6 @@ import Table, {
 import Paper from "material-ui/Paper";
 
 const SourceFiles = ({ files }) => {
-  console.log("fe", files);
   return (
     <Paper style={{ marginTop: "2em" }}>
       <Table>

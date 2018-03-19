@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import SwipeableViews from "react-swipeable-views";
 
@@ -7,12 +7,9 @@ import Chip from "material-ui/Chip";
 import Tabs, { Tab } from "material-ui/Tabs";
 import Typography from "material-ui/Typography";
 import AppBar from "material-ui/AppBar";
-import Card, { CardContent, CardMedia } from "material-ui/Card";
-import Grid from "material-ui/Grid";
-import Paper from "material-ui/Paper";
+import { CardContent } from "material-ui/Card";
 import ReactMarkdown from "react-markdown";
 
-import StarIcon from "material-ui-icons/Grade";
 import FavoriteIcon from "material-ui-icons/Favorite";
 import FavoriteBorderIcon from "material-ui-icons/FavoriteBorder";
 import UpIcon from "material-ui-icons/KeyboardArrowUp";
@@ -102,7 +99,6 @@ export const ProjectHeader = props => {
 };
 
 export const ProjectContent = props => {
-  console.log("ff", props.files);
   return (
     <div>
       <AppBar position="static" color="default">
