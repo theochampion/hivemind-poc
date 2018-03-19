@@ -29,13 +29,43 @@ module.exports = {
     files: [
       {
         isFolder: true,
-        name: "src",
-        size: 1034,
+        name: "public",
+        comment: "add copyright informations",
+        size: 4096,
         lmd: "23 hours ago"
       },
       {
+        isFolder: true,
+        name: "server",
+        comment: "Add mongodb integration + routes",
+        size: 4096,
+        lmd: "12 hours ago"
+      },
+      {
+        isFolder: true,
+        name: "src",
+        comment: "Global: Project / CardMatrix presentation components",
+        size: 4096,
+        lmd: "7 hours ago"
+      },
+      {
         isFolder: false,
-        name: "moc.txt",
+        name: ".gitignore",
+        comment: "Ignore vscode specifics",
+        size: 124,
+        lmd: "12 hours ago"
+      },
+      {
+        isFolder: false,
+        name: "README.md",
+        comment: "Add dev and production guidlines",
+        size: 407,
+        lmd: "1 day ago"
+      },
+      {
+        isFolder: false,
+        name: "yarn.lock",
+        comment: "Merge branch 'dev-front'",
         size: 124,
         lmd: "12 hours ago"
       }
