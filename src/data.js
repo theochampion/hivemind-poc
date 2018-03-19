@@ -77,8 +77,8 @@ module.exports = {
           "A touchscreen that can support a lot of features, thanks to the RaspberryPi capablility, like games, utlities, or home-automation.",
         tags: ["Raspberry Pi"],
         points: 42,
-        contributors: 3,
-        commits: 5
+        contributors: 2,
+        commits: 1
       },
       {
         title: "Pneumatic feets",

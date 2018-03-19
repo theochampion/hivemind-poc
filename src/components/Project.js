@@ -15,6 +15,7 @@ import FavoriteBorderIcon from "material-ui-icons/FavoriteBorder";
 import UpIcon from "material-ui-icons/KeyboardArrowUp";
 import DownIcon from "material-ui-icons/KeyboardArrowDown";
 import CommitIcon from "material-ui-icons/Extension";
+import ContributorsIcon from "material-ui-icons/Group";
 
 import CardMatrix from "./CardMatrix";
 import SourceFiles from "./SourceFiles";
@@ -65,7 +66,7 @@ export const ProjectCards = props => {
           style={{
             display: "flex",
             alignItems: "center",
-            margin: "12px"
+            margin: "6px"
           }}
         >
           <IconButton>
@@ -75,15 +76,15 @@ export const ProjectCards = props => {
           <IconButton>
             <DownIcon style={{ height: 38, width: 38 }} />
           </IconButton>
-        </div>
-        {/* <IconButton aria-label="Commits">
+        <IconButton aria-label="Commits">
           {card.commits}
           <CommitIcon />
         </IconButton>
         <IconButton aria-label="Commits">
           {card.contributors}
-          <CommitIcon />
-        </IconButton> */}
+          <ContributorsIcon />
+        </IconButton>
+        </div>
       </CardContent>
     </Card>
   ));
