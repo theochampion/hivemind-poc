@@ -157,12 +157,12 @@ module.exports = {
     {
       name: "Antoine Cauquil",
       competencies: [
-        "Developer Python",
-        "Machine Learning",
-        "Embedded OS",
-        "Mechanic"
+        "Mechanics",
+        "Arduino"
+        // "Machine Learning",
+        // "Embedded OS"
       ],
-      reputation: 66,
+      reputation: 375,
       img: "https://i.imgur.com/5Tpbaii.jpg",
       location: "Beijing, China",
       inProject: false,
@@ -170,7 +170,7 @@ module.exports = {
     },
     {
       name: "Thomas Baakel",
-      competencies: ["Street Art", "Wordpress", "Raspberry pi"],
+      competencies: [ "Raspberry Pi", "Street Art", "Wordpress"],
       reputation: 23,
       img: "https://i.imgur.com/dalEMPI.jpg",
       location: "Montreuil, France",
@@ -179,7 +179,7 @@ module.exports = {
     },
     {
       name: "Nicolas Sebag",
-      competencies: ["Project Management", "iOS", "Wood carver"],
+      competencies: ["Wood carver", "Project Management", "iOS"],
       reputation: 347,
       img: "https://i.imgur.com/DPoFICj.jpg",
       location: "Stockholm, Sweden",
