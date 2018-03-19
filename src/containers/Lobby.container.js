@@ -44,10 +44,14 @@ class Lobby extends Component {
     this.state = { count: 0 };
   }
   render() {
-    const { classes } = this.props;
+    const { classes, history } = this.props;
     var i = 0;
     const cards = data.homeCardProject.cards.map(cards => (
-      <Card className={classes.card}>
+      <Card
+        // raised
+        className={classes.card}
+        onClick={() => history.push("/project")}
+      >
         <CardMedia
           className={classes.media}
           image={data.homeCardProject.cards[i].img}

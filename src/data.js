@@ -5,12 +5,12 @@ module.exports = {
     lastName: "Cauquil"
   },
   project: {
-    name: "AI-Controlled Multi-Pattern Search Radar",
+    name: "Low table for the 21st Century",
     quote:
-      "A high gain radar providing Helical, Raster, Palmer-Raster and Palmer-Helical scanning modes, all controlled by a powerful AI",
-    likes: 1337,
+      "A modular multifunction low table that can implements cutting-edge technology features",
+    likes: 1336,
     liked: false,
-    tags: ["Electronics", "Arduino", "Machine Learning"],
+    tags: ["Woodwork", "Arduino", "Raspberry Pi"],
     description: `## Features\n## Usage\n### Installation\n### Running examples in this repository
 
     
@@ -72,16 +72,22 @@ module.exports = {
     ],
     cards: [
       {
-        title: "Monopulse Tracking",
+        title: "Multifunction touchscreen",
         description:
-          "The tracking solution may be determined on the basis of a single pulse rather than the beam sequence (sequential lobing) or a complete conical scan. The tracking data rate is therefore much higher and therefore potentially more accurate.",
-        points: 42
+          "A touchscreen that can support a lot of features, thanks to the RaspberryPi capablility, like games, utlities, or home-automation.",
+        tags: ["Raspberry Pi"],
+        points: 42,
+        contributors: 3,
+        commits: 5
       },
       {
-        title: "Velocity Search",
+        title: "Pneumatic feets",
         description:
-          "The PRF ( Pulse repetition frequency ) are set at maximum, higher PRF results in more power on target, more power mean more reflection, this mode is specifically for detecting medium and high closure targets, with the cost of not detecting low and no-closure targets at all.",
-        points: 25
+          "Pneumatic feets that enable elevation adjustment of the table",
+        tags: ["Mechanics", "Arduino"],
+        points: 25,
+        contributors: 3,
+        commits: 5
       }
     ]
   },
@@ -90,33 +96,42 @@ module.exports = {
       {
         title: "Robot",
         name: "New Hand Steel Robot",
-        img: "http://www.trossenrobotics.com/Shared/Images/Product/PhantomX-Reactor-Robot-Arm-Kit/reac-1.jpg",
-        desc: "In this tutorial, i built my own robot arm! That was a lot of fun!"
+        img:
+          "http://www.trossenrobotics.com/Shared/Images/Product/PhantomX-Reactor-Robot-Arm-Kit/reac-1.jpg",
+        desc:
+          "In this tutorial, i built my own robot arm! That was a lot of fun!"
       },
       {
         title: "Drone",
         name: "Homemade Drone",
-        img: "https://cdn.instructables.com/F55/QFKF/I12KEORV/F55QFKFI12KEORV.LARGE.jpg",
-        desc: "Building a quadricopter with materials that are easily findable in shops"
+        img:
+          "https://cdn.instructables.com/F55/QFKF/I12KEORV/F55QFKFI12KEORV.LARGE.jpg",
+        desc:
+          "Building a quadricopter with materials that are easily findable in shops"
       },
       {
         title: "Sound",
         name: "Guitard Home Made",
-        img: "https://i2.wp.com/paris.makerfaire.com/wp-content/uploads/sites/109/2017/07/maker_faire_paris_2017_jour_2_samedi_photo_quentin_chevrier-18-stand-Toystroy.jpg?fit=3490%2C5235&ssl=1",
-        desc: "If you ever thought building your own guitar, start here, with materials you can find at home."
+        img:
+          "https://i2.wp.com/paris.makerfaire.com/wp-content/uploads/sites/109/2017/07/maker_faire_paris_2017_jour_2_samedi_photo_quentin_chevrier-18-stand-Toystroy.jpg?fit=3490%2C5235&ssl=1",
+        desc:
+          "If you ever thought building your own guitar, start here, with materials you can find at home."
       },
       {
         title: "woodenStool",
         name: "Wooden Stool HomeMade",
-        img: "https://i1.wp.com/makezine.com/wp-content/uploads/2017/10/CNC_FamilyStool-4.jpg?resize=1024%2C683&ssl=1",
-        desc: "This tutorial will explain you the how I made a wooden stool using Modern builds design."
+        img:
+          "https://i1.wp.com/makezine.com/wp-content/uploads/2017/10/CNC_FamilyStool-4.jpg?resize=1024%2C683&ssl=1",
+        desc:
+          "This tutorial will explain you the how I made a wooden stool using Modern builds design."
       },
       {
         title: "rCar",
         name: "Autonomous R/C Car",
-        img: "https://i0.wp.com/makezine.com/wp-content/uploads/2017/08/FEATUREDDonkeyVehicleOpeners-4.jpg?resize=1024%2C683&ssl=1",
+        img:
+          "https://i0.wp.com/makezine.com/wp-content/uploads/2017/08/FEATUREDDonkeyVehicleOpeners-4.jpg?resize=1024%2C683&ssl=1",
         desc: "Make your own RC car at home using cheap and resistant materials"
-      },
+      }
     ]
   },
   contributors: [

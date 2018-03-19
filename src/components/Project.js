@@ -7,13 +7,14 @@ import Chip from "material-ui/Chip";
 import Tabs, { Tab } from "material-ui/Tabs";
 import Typography from "material-ui/Typography";
 import AppBar from "material-ui/AppBar";
-import { CardContent } from "material-ui/Card";
+import Card, { CardContent } from "material-ui/Card";
 import ReactMarkdown from "react-markdown";
 
 import FavoriteIcon from "material-ui-icons/Favorite";
 import FavoriteBorderIcon from "material-ui-icons/FavoriteBorder";
 import UpIcon from "material-ui-icons/KeyboardArrowUp";
 import DownIcon from "material-ui-icons/KeyboardArrowDown";
+import CommitIcon from "material-ui-icons/Extension";
 
 import CardMatrix from "./CardMatrix";
 import SourceFiles from "./SourceFiles";
@@ -47,27 +48,44 @@ export const ProjectStatus = props => {
 
 export const ProjectCards = props => {
   const cards = props.cards.map(card => (
-    <CardContent>
-      <Typography variant="headline" component="h2" style={{ margin: "12px" }}>
-        {card.title}
-      </Typography>
-      <Typography component="p">{card.description}</Typography>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          margin: "12px"
-        }}
-      >
-        <IconButton>
-          <UpIcon style={{ height: 38, width: 38 }} />
+    <Card>
+      <CardContent>
+        <Typography
+          variant="headline"
+          component="h2"
+          style={{ margin: "12px" }}
+        >
+          {card.title}
+        </Typography>
+        <ProjectTags tags={card.tags} />
+        <Typography component="p" style={{ marginTop: "1em" }}>
+          {card.description}
+        </Typography>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            margin: "12px"
+          }}
+        >
+          <IconButton>
+            <UpIcon style={{ height: 38, width: 38 }} />
+          </IconButton>
+          <Typography variant="headline">{card.points}</Typography>
+          <IconButton>
+            <DownIcon style={{ height: 38, width: 38 }} />
+          </IconButton>
+        </div>
+        {/* <IconButton aria-label="Commits">
+          {card.commits}
+          <CommitIcon />
         </IconButton>
-        <Typography variant="headline">{card.points}</Typography>
-        <IconButton>
-          <DownIcon style={{ height: 38, width: 38 }} />
-        </IconButton>
-      </div>
-    </CardContent>
+        <IconButton aria-label="Commits">
+          {card.contributors}
+          <CommitIcon />
+        </IconButton> */}
+      </CardContent>
+    </Card>
   ));
   return <CardMatrix toolbar cards={cards} />;
 };
