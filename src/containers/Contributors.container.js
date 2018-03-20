@@ -6,10 +6,11 @@ import Typography from "material-ui/Typography";
 
 import { ProjectHeader } from "../components/Project";
 import { ContributorsMatrix } from "../components/Contributor";
-import data from "../data";
+import projectData from "../data/project"
+import membersData from "../data/members";
 
 class Contributors extends Component {
-  state = { project: data.project, contributors: data.contributors };
+  state = { project: projectData.project, contributors: membersData.members };
 
   _onLike() {
     const { liked } = this.state;

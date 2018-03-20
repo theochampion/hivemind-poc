@@ -141,7 +141,7 @@ export const ProjectConversation = props => {
     <div
       style={{
         margin: "2em",
-        height: "100%",
+        height: "100%"
         // display: "inline-flex",
         //flexDirection: "column",
         // flex: "grow",
@@ -152,8 +152,7 @@ export const ProjectConversation = props => {
       <TextField
         id="name"
         label="Message"
-        style={{ width: "100%", marginBottom: "1em"}}
-
+        style={{ width: "100%", marginBottom: "1em" }}
       />
     </div>
   );
@@ -178,7 +177,9 @@ export const ProjectContent = props => {
       </AppBar>
       <SwipeableViews index={props.tabIndex} onChangeIndex={props.onTabChange}>
         <div>
-          <ReactMarkdown source={props.description} />
+          <ReactMarkdown 
+          // style={{ margin: "2em" }} 
+          source={props.description} />
         </div>
         <SourceFiles files={props.files} />
         <div>
