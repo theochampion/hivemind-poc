@@ -199,8 +199,14 @@ export const ProjectContent = props => {
       </AppBar>
       <SwipeableViews index={props.tabIndex} onChangeIndex={props.onTabChange}>
         <div>
+<<<<<<< HEAD
           <ProjectMarkDown />
           {/* <ReactMarkdown source={props.description} /> */}
+=======
+          <ReactMarkdown 
+          // style={{ margin: "2em" }} 
+          source={props.description} />
+>>>>>>> aad0fba3c0ff2d128485c53f59189d882eb5829d
         </div>
         <SourceFiles files={props.files} />
         <div>

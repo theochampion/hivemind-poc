@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 import { ProjectHeader, ProjectContent } from "../components/Project";
-import data from "../data";
+import projectData from "../data/project";
 
 class Project extends Component {
-  state = data.project;
+  state = projectData.project;
 
   _onLike() {
     const { liked } = this.state;
