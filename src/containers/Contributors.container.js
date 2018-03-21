@@ -34,14 +34,6 @@ class Contributors extends Component {
     const contributors = this.state.contributors;
     return (
       <div>
-        {/* <ProjectHeader
-          name={name}
-          //   quote={quote}
-          likes={likes + liked}
-          liked={liked}
-          tags={tags}
-          onLike={() => this._onLike()}
-        /> */}
         <Typography variant="display3" style={{ margin: "12px" }}>
           Contributors
         </Typography>

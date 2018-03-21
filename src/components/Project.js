@@ -1,8 +1,6 @@
 import React, { component, Component } from "react";
 import TextField from "material-ui/TextField";
 import SwipeableViews from "react-swipeable-views";
-import ReactMarkdown from "react-markdown";
-import MarkMirror from "react-markmirror";
 
 import IconButton from "material-ui/IconButton";
 import Chip from "material-ui/Chip";
@@ -10,6 +8,8 @@ import Tabs, { Tab } from "material-ui/Tabs";
 import Typography from "material-ui/Typography";
 import AppBar from "material-ui/AppBar";
 import Card, { CardContent } from "material-ui/Card";
+import Paper from "material-ui/Paper";
+import ReactMarkdown from "react-markdown";
 
 import FavoriteIcon from "material-ui-icons/Favorite";
 import FavoriteBorderIcon from "material-ui-icons/FavoriteBorder";
@@ -17,10 +17,14 @@ import UpIcon from "material-ui-icons/KeyboardArrowUp";
 import DownIcon from "material-ui-icons/KeyboardArrowDown";
 import CommitIcon from "material-ui-icons/Extension";
 import ContributorsIcon from "material-ui-icons/Group";
+import EditIcon from "material-ui-icons/ModeEdit";
+import Button from "material-ui/Button";
 
 import CardMatrix from "./CardMatrix";
 import SourceFiles from "./SourceFiles";
 
+import MarkMirror from "react-markmirror";
+import { typography } from "material-ui/styles";
 
 export const ProjectTags = props => {
   return (
@@ -165,17 +169,47 @@ class ProjectMarkDown extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: ""
+      code: "Edit your project page",
+      edit: false
     };
+    this.onEdit = this.onEdit.bind(this);
   }
+
+  onEdit() {
+    this.setState({ edit: !this.state.edit });
+  }
+
   handleChange = code => {
-    this.setState({ code });
+    this.setState({ code: code });
+    console.log(this.state.code);
   };
 
   render() {
     return (
-      <div>
-        <MarkMirror value={this.state.code} onChange={this.handleChange} />
+      <div style={{ flex: "1", margin: "2em", font: "loboto" }}>
+        <div style={{ margin: "1em" }}>
+          <Button
+            variant="fab"
+            color="primary"
+            aria-label="edit"
+            style={{ margin: "theme.spacing.unit" }}
+            onClick={this.onEdit}
+          >
+            <EditIcon />
+          </Button>
+        </div>
+        {this.state.edit && (
+          <span style={{ width: "50%" }}>
+            <MarkMirror value={this.state.code} onChange={this.handleChange} />
+          </span>
+        )}
+        <span style={{ width: "50%" }}>
+          <Paper>
+            <div style={{ padding: "1em", margin: "1em" }}>
+              <ReactMarkdown source={this.state.code} />
+            </div>
+          </Paper>
+        </span>
       </div>
     );
   }
@@ -201,7 +235,6 @@ export const ProjectContent = props => {
       <SwipeableViews index={props.tabIndex} onChangeIndex={props.onTabChange}>
         <div>
           <ProjectMarkDown />
-          {/* <ReactMarkdown source={props.description} /> */}
         </div>
         <SourceFiles files={props.files} />
         <div>
