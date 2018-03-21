@@ -5,21 +5,23 @@ import { withStyles } from "material-ui/styles";
 import Card from "material-ui/Card";
 import { CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
+import Grid from "material-ui/Grid";
 
 import CardMatrix from "../components/CardMatrix";
 import Map from "../components/Map";
 import homeData from "../data/home";
+import zIndex from "material-ui/styles/zIndex";
 
 const styles = theme => ({
-  card: {
-    maxWidth: 345
+  hivecard: {
+    position: "absolute",
+    zIndex: 10,
+    opacity: 0.9,
+    margin: "1em"
   },
   media: {
     height: 200,
     marginTop: "0px"
-  },
-  bigImage: {
-    width: "100%"
   },
   fontTitle: {
     position: "absolute",
@@ -41,7 +43,10 @@ const styles = theme => ({
 class Lobby extends Component {
   constructor(props) {
     super(props);
-    this.state = { count: 0 };
+    this.state = {
+      count: 0,
+      selectedHive: null
+    };
   }
   render() {
     const { classes, history } = this.props;
@@ -49,7 +54,6 @@ class Lobby extends Component {
     const cards = homeData.projects.map(card => (
       <Card
         // raised
-        className={classes.card}
         onClick={() => history.push("/project")}
       >
         <CardMedia className={classes.media} image={card.img} />
@@ -63,10 +67,39 @@ class Lobby extends Component {
     ));
     return (
       <div>
-        <Map />
-        <Typography className={classes.fontTitle}>Hivemind</Typography>
+        {this.state.selectedHive && (
+          <Card className={classes.hivecard}>
+            {/* <CardMedia className={classes.media} image={card.img} /> */}
+
+            <CardContent>
+              <Grid container spacing={24}>
+                <Grid item xs={10}>
+                  <Typography variant="headline" component="h2">
+                    {this.state.selectedHive.name}
+                  </Typography>
+                </Grid>
+                <Grid item xs={2}>
+                  <Typography variant="headline" component="h2">
+                    {this.state.selectedHive.members}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        )}
+        <Map
+          animate
+          style={{
+            height: "40em",
+            width: "100%"
+          }}
+          onHiveChange={hive => {
+            this.setState({ selectedHive: hive });
+          }}
+        />
+        {/* <Typography className={classes.fontTitle}>Hivemind</Typography> */}
         <Typography component="h1" className={classes.fontDesc}>
-          Make it together
+          Featured
         </Typography>
         <CardMatrix toolbar cards={cards} />
       </div>
