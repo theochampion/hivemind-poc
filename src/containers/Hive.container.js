@@ -8,6 +8,7 @@ import { HiveMembers, HiveProjects, HiveHeader } from "../components/Hive";
 import hiveData from "../data/hive";
 import membersData from "../data/members";
 import projectsData from "../data/home";
+import Map from "../components/Map";
 
 const styles = theme => ({
   root: {
@@ -32,9 +33,49 @@ class Hive extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <HiveMembers members={members} />
-        <HiveHeader name={hive.name} location={hive.location}/>
-        <HiveProjects projects={projects} />
+        <HiveHeader
+          name={hive.name}
+          location={hive.location}
+          style={{
+            position: "absolute",
+            top: "5em",
+            zIndex: 3,
+            width: "20em",
+            left: 0,
+            right: 0,
+            marginLeft: "auto",
+            marginRight: "auto"
+          }}
+        />
+        <HiveMembers
+          members={members}
+          style={{
+            position: "absolute",
+            top: "4em",
+            bottom: 9,
+            minWidth: 300,
+            zIndex: 3,
+            margin: "2em",
+            borderRadius: 10
+          }}
+        />
+        <HiveProjects
+          projects={projects}
+          style={{
+            position: "absolute",
+            top: "4em",
+            bottom: 0,
+            right: 0,
+            minWidth: 300,
+            zIndex: 3,
+            margin: "2em",
+            borderRadius: 10
+          }}
+        />
+        <Map
+          style={{ position: "absolute", top: 0, bottom: 0, width: "100%" }}
+          startPos={[2.28217321814, 48.8569864146]}
+        />
       </div>
     );
   }

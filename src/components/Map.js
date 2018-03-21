@@ -84,11 +84,8 @@ export default class Map extends React.Component {
   }
 
   render() {
-    const style = {
-      height: "30em",
-      width: "100%"
-    };
-
-    return <div style={style} ref={el => (this.mapContainer = el)} />;
+    return (
+      <div style={this.props.style} ref={el => (this.mapContainer = el)} />
+    );
   }
 }
