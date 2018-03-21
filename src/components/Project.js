@@ -20,6 +20,7 @@ import ContributorsIcon from "material-ui-icons/Group";
 import EditIcon from "material-ui-icons/ModeEdit";
 import Button from "material-ui/Button";
 
+import Grid from "material-ui/Grid";
 import CardMatrix from "./CardMatrix";
 import SourceFiles from "./SourceFiles";
 
@@ -186,30 +187,31 @@ class ProjectMarkDown extends Component {
 
   render() {
     return (
-      <div style={{ flex: "1", margin: "2em", font: "loboto" }}>
-        <div style={{ margin: "1em" }}>
-          <Button
-            variant="fab"
-            color="primary"
-            aria-label="edit"
-            style={{ margin: "theme.spacing.unit" }}
-            onClick={this.onEdit}
-          >
-            <EditIcon />
-          </Button>
-        </div>
-        {this.state.edit && (
-          <span style={{ width: "50%" }}>
-            <MarkMirror value={this.state.code} onChange={this.handleChange} />
-          </span>
-        )}
-        <span style={{ width: "50%" }}>
-          <Paper>
-            <div style={{ padding: "1em", margin: "1em" }}>
+      <div>
+        <Button
+          variant="fab"
+          color="primary"
+          aria-label="edit"
+          style={{ margin: "theme.spacing.unit" }}
+          onClick={this.onEdit}
+        >
+          <EditIcon />
+        </Button>
+        <Grid container spacing={24}>
+          {this.state.edit && (
+            <Grid item xs={12} md={6}>
+              <MarkMirror
+                value={this.state.code}
+                onChange={this.handleChange}
+              />
+            </Grid>
+          )}
+          <Grid item xs={this.state.edit ? 6 : 12} md={6}>
+            <Paper>
               <ReactMarkdown source={this.state.code} />
-            </div>
-          </Paper>
-        </span>
+            </Paper>
+          </Grid>
+        </Grid>
       </div>
     );
   }
@@ -241,7 +243,10 @@ export const ProjectContent = props => {
           <ProjectCards cards={props.cards} />
         </div>
         <div>
-          <ProjectConversation messages={props.messages} onNewMessage={props.onNewMessage}/>
+          <ProjectConversation
+            messages={props.messages}
+            onNewMessage={props.onNewMessage}
+          />
         </div>
       </SwipeableViews>
     </div>
