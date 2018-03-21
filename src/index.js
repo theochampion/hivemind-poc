@@ -1,36 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import "./index.css";
+import App from "./App";
+import registerServiceWorker from "./registerServiceWorker";
 
-// containers
-import Lobby from "./containers/Lobby.container";
-import Hive from "./containers/Hive.container";
-import Project from "./containers/Project.container";
-import Contributors from "./containers/Contributors.container";
-
-// layouts for header and spec sidebar
-import DefaultLayout from "./components/DefaultLayout";
-import SpecLayout from "./components/SpecLayout";
-
-import { createStore } from "redux";
-
-import rootReducer from "./reducers";
-
-window.React = React;
-
-const store = createStore(rootReducer);
-
-ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <div>
-        <DefaultLayout exact path="/" component={Lobby} />
-        <DefaultLayout exact path="/hive" component={Hive} />
-        <SpecLayout path="/project" component={Project} />
-        <SpecLayout path="/contributors" component={Contributors} />
-      </div>
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
+registerServiceWorker();

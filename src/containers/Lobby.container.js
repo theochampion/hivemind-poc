@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import YouTubePlayer from "react-player/lib/players/YouTube";
 
 import { withStyles } from "material-ui/styles";
 
@@ -8,6 +7,7 @@ import { CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 
 import CardMatrix from "../components/CardMatrix";
+import Map from "../components/Map";
 import homeData from "../data/home";
 
 const styles = theme => ({
@@ -52,47 +52,23 @@ class Lobby extends Component {
         className={classes.card}
         onClick={() => history.push("/project")}
       >
-        <CardMedia
-          className={classes.media}
-          image={card.img}
-        />
+        <CardMedia className={classes.media} image={card.img} />
         <CardContent>
           <Typography variant="headline" component="h2">
             {card.name}
           </Typography>
-          <Typography component="p">
-            {card.desc}
-          </Typography>
+          <Typography component="p">{card.desc}</Typography>
         </CardContent>
       </Card>
     ));
     return (
       <div>
-        <div style={{ height: "100%", width: "100%", top: "-1em" }}>
-        {/* <Typography>bite</Typography> */}
-          <YouTubePlayer
-            youtubeConfig={{ playerVars: { showinfo: 1 } }}
-            url="https://www.youtube.com/watch?v=2s2dKBqpnIs"
-            height="1080px"
-            width="100%"
-            playing
-            loop
-            muted
-          />
-        </div>
+        <Map />
         <Typography className={classes.fontTitle}>Hivemind</Typography>
-        {/* <Typography component="h1" className={classes.fontDesc}>
-          Make it together{" "}
-        </Typography> */}
-        <div
-          style={{
-            "margin-top": "-30em",
-            position: "absolute",
-            "background-color": "white"
-          }}
-        >
-          <CardMatrix toolbar cards={cards} />
-        </div>
+        <Typography component="h1" className={classes.fontDesc}>
+          Make it together
+        </Typography>
+        <CardMatrix toolbar cards={cards} />
       </div>
     );
   }
