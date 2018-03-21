@@ -18,10 +18,11 @@ class CardMatrix extends Component {
       <div>
         <Grid
           container
-          justify="flex-start"
-          alignItems="center"
+          justify="space-between"
+          alignContent="space-between"
+          alignItems="stretch"
           spacing={40}
-          style={{ width: "100%", marginTop: "1em" }}
+          style={{ marginTop: "1em" }}
         >
           {cards.map((card, idx) => (
             <Grid item xs={12} sm={6} lg={3} key={idx}>

@@ -7,11 +7,39 @@ import geodata from "../data/hives.json";
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmV0cm9ib3RpYyIsImEiOiJjamU4a2xoaG8wcHI2MnhtenJqaWxzd2dtIn0.xIBjrkrzz9_vpFeAvO37hw";
 
+const getRandomInt = max => {
+  return Math.floor(Math.random() * Math.floor(max));
+};
+
 export default class Map extends React.Component {
+  playback(index) {
+    // title.textContent = locations[index].title;
+    //description.textContent = locations[index].description;
+
+    console.log("flyto", geodata.features[index].geometry.coordinates);
+    this.map.flyTo({
+      center: geodata.features[index].geometry.coordinates,
+      zoom: 15,
+      curve: 4,
+      speed: 0.3
+    });
+
+    this.map.once("moveend", () => {
+      this.props.onHiveChange({
+        name: geodata.features[index].properties.name,
+        members: getRandomInt(30)
+      });
+      setTimeout(() => {
+        index = index + 1 === geodata.length ? 0 : index + 1;
+        this.playback(index);
+      }, 4000);
+    });
+  }
+
   componentDidMount() {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: "mapbox://styles/mapbox/streets-v9",
+      style: "mapbox://styles/mapbox/light-v9",
       center: this.props.startPos || [2.3412, 48.8575],
       zoom: this.props.startPos ? 15 : 11
     });
@@ -21,8 +49,8 @@ export default class Map extends React.Component {
         type: "geojson",
         data: geodata,
         cluster: true,
-        clusterMaxZoom: 14, // Max zoom to cluster points on
-        clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+        clusterMaxZoom: 14,
+        clusterRadius: 50
       });
 
       this.map.addLayer({
@@ -71,12 +99,13 @@ export default class Map extends React.Component {
         filter: ["!has", "point_count"],
         paint: {
           "circle-color": "#11b4da",
-          "circle-radius": 4,
+          "circle-radius": 10,
           "circle-stroke-width": 1,
           "circle-stroke-color": "#fff"
         }
       });
     });
+    this.props.animate && this.playback(0);
   }
 
   componentWillUnmount() {
@@ -84,11 +113,8 @@ export default class Map extends React.Component {
   }
 
   render() {
-    const style = {
-      height: "30em",
-      width: "100%"
-    };
-
-    return <div style={style} ref={el => (this.mapContainer = el)} />;
+    return (
+      <div style={this.props.style} ref={el => (this.mapContainer = el)} />
+    );
   }
 }
