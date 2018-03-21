@@ -1,5 +1,5 @@
 import React from "react";
-import List, { ListItem, ListItemText } from "material-ui/List";
+import List, { ListItem, ListItemText, ListSubheader } from "material-ui/List";
 import Avatar from "material-ui/Avatar";
 import Paper from "material-ui/Paper";
 import Divider from "material-ui/Divider";
@@ -13,12 +13,9 @@ export const HiveMembers = props => {
     </ListItem>
   ));
   return (
-    // <div style={{ margin: "1em", display:"flex", alignContent: "center" }}>
-    //   <Typography>Members</Typography>
-      <Paper style={{ minWidth: 300, margin: "1em" }}>
-        <List>{members}</List>
-      </Paper>
-    // </div>
+    <Paper style={props.style}>
+      <List subheader={<ListSubheader>Members</ListSubheader>}>{members}</List>
+    </Paper>
   );
 };
 
@@ -30,17 +27,30 @@ export const HiveProjects = props => {
     </ListItem>
   ));
   return (
-    <Paper style={{ minWidth: 300, margin: "1em" }}>
-      <List>{projects}</List>
+    <Paper style={props.style}>
+      <List subheader={<ListSubheader>Projects</ListSubheader>}>
+        {projects}
+      </List>
     </Paper>
   );
 };
 
 export const HiveHeader = props => (
-  <div align="center">
-    <Typography variant="display3">{props.name}</Typography>
-    <Typography variant="display2">
-      <i>{props.location}</i>
-    </Typography>
+  <div align="center" style={props.style}>
+    <Paper
+      style={{
+        zIndex: 100,
+        padding: "1em",
+        borderRadius: 40,
+        backgroundColor: "#03A9F4"
+      }}
+    >
+      <Typography variant="headline" style={{ color: "white" }}>
+        {props.name}
+      </Typography>
+      <Typography variant="title" style={{ color: "white" }}>
+        <i>{props.location}</i>
+      </Typography>
+    </Paper>
   </div>
 );
