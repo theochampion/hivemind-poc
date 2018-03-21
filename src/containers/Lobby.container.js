@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import YouTubePlayer from "react-player/lib/players/YouTube";
 
 import { withStyles } from "material-ui/styles";
 
@@ -9,6 +8,7 @@ import Typography from "material-ui/Typography";
 
 import CardMatrix from "../components/CardMatrix";
 import data from "../data";
+import Map from "../components/Map";
 
 const styles = theme => ({
   card: {
@@ -68,30 +68,12 @@ class Lobby extends Component {
     ));
     return (
       <div>
-        <div style={{ height: "100%", width: "100%", top: "-1em" }}>
-          <YouTubePlayer
-            youtubeConfig={{ playerVars: { showinfo: 1 } }}
-            url="https://www.youtube.com/watch?v=2s2dKBqpnIs"
-            height="1080px"
-            width="100%"
-            playing
-            loop
-            muted
-          />
-        </div>
+        <Map />
         <Typography className={classes.fontTitle}>Hivemind</Typography>
         <Typography component="h1" className={classes.fontDesc}>
-          Make it together{" "}
+          Make it together
         </Typography>
-        <div
-          style={{
-            "margin-top": "-30em",
-            position: "absolute",
-            "background-color": "white"
-          }}
-        >
-          <CardMatrix toolbar cards={cards} />
-        </div>
+        <CardMatrix toolbar cards={cards} />
       </div>
     );
   }
