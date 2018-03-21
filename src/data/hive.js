@@ -1,5 +1,5 @@
 module.exports = {
-  name: "My awesome Hackerspace",
+  name: "The Deadbeef Lab",
   location: "Paris, France",
   competencies: ["Woodwork", "Mecanics"]
 };

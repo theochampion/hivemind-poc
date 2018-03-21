@@ -14,6 +14,19 @@ class Project extends Component {
   _onTabChange(e, data) {
     this.setState({ tabIndex: data });
   }
+
+  _onNewMessage(e) {
+    if (e.key === "Enter") {
+      this.setState({
+        conversation: [
+          ...this.state.conversation,
+          { name: "0xdeadbeef", msg: e.target.value }
+        ]
+      });
+      e.target.value = ''
+    }
+  }
+
   render() {
     const {
       name,
@@ -41,6 +54,7 @@ class Project extends Component {
         <ProjectContent
           tabIndex={tabIndex}
           onTabChange={(e, data) => this._onTabChange(e, data)}
+          onNewMessage={(e, data) => this._onNewMessage(e)}
           description={description}
           cards={cards}
           files={files}
