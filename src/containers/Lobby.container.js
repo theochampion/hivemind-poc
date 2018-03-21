@@ -7,8 +7,8 @@ import { CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 
 import CardMatrix from "../components/CardMatrix";
-import data from "../data";
 import Map from "../components/Map";
+import homeData from "../data/home";
 
 const styles = theme => ({
   card: {
@@ -46,23 +46,18 @@ class Lobby extends Component {
   render() {
     const { classes, history } = this.props;
     var i = 0;
-    const cards = data.homeCardProject.cards.map(cards => (
+    const cards = homeData.projects.map(card => (
       <Card
         // raised
         className={classes.card}
         onClick={() => history.push("/project")}
       >
-        <CardMedia
-          className={classes.media}
-          image={data.homeCardProject.cards[i].img}
-        />
+        <CardMedia className={classes.media} image={card.img} />
         <CardContent>
           <Typography variant="headline" component="h2">
-            {data.homeCardProject.cards[i].name}
+            {card.name}
           </Typography>
-          <Typography component="p">
-            {data.homeCardProject.cards[i++].desc}
-          </Typography>
+          <Typography component="p">{card.desc}</Typography>
         </CardContent>
       </Card>
     ));

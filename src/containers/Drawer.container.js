@@ -29,8 +29,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
     minWidth: 0 // So the Typography noWrap works
-  },
-  toolbar: theme.mixins.toolbar
+  }
 });
 
 class ClippedDrawer extends Component {
@@ -46,7 +45,6 @@ class ClippedDrawer extends Component {
             paper: classes.drawerPaper
           }}
         >
-          <div className={classes.toolbar} />
           <List>
             <ListItem>
               <Avatar src="https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/27541055_10209196634467925_2256573480339693500_n.jpg?oh=273f93266e49ce8e5e1f9bc97b12d052&oe=5B477552" />

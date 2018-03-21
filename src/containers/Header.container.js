@@ -14,15 +14,16 @@ import AddIcon from "material-ui-icons/LibraryAdd";
 
 import * as UserActions from "../actions/user";
 
-const styles = {
+const styles = theme => ({
   flex: {
     flex: 1,
     "justify-content": "flex-end"
   },
   flexstart: {
     "margin-right": "auto"
-  }
-};
+  },
+  toolbar: theme.mixins.toolbar
+});
 
 class HeaderContainer extends Component {
   render() {
@@ -44,9 +45,7 @@ class HeaderContainer extends Component {
             {isLogged ? (
               <div>
                 <IconButton aria-label="Delete">
-                  <AddIcon 
-                  style={{color: "white"}}
-                  />
+                  <AddIcon style={{ color: "white" }} />
                 </IconButton>
                 <Button
                   onClick={() => {
@@ -68,6 +67,7 @@ class HeaderContainer extends Component {
             )}
           </Toolbar>
         </AppBar>
+        <div className={classes.toolbar} />
       </header>
     );
   }
