@@ -69,6 +69,7 @@ class Lobby extends Component {
     return (
       <div>
         <div style={{ height: "100%", width: "100%", top: "-1em" }}>
+        {/* <Typography>bite</Typography> */}
           <YouTubePlayer
             youtubeConfig={{ playerVars: { showinfo: 1 } }}
             url="https://www.youtube.com/watch?v=2s2dKBqpnIs"

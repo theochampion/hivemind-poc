@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 
 // containers
 import Lobby from "./containers/Lobby.container";
+import Hive from "./containers/Hive.container";
 import Project from "./containers/Project.container";
 import Contributors from "./containers/Contributors.container";
 
@@ -25,6 +26,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <DefaultLayout exact path="/" component={Lobby} />
+        <DefaultLayout exact path="/hive" component={Hive} />
         <SpecLayout path="/project" component={Project} />
         <SpecLayout path="/contributors" component={Contributors} />
       </div>

@@ -1,6 +1,8 @@
 import React, { component, Component } from "react";
 import TextField from "material-ui/TextField";
 import SwipeableViews from "react-swipeable-views";
+import ReactMarkdown from "react-markdown";
+import MarkMirror from "react-markmirror";
 
 import IconButton from "material-ui/IconButton";
 import Chip from "material-ui/Chip";
@@ -8,7 +10,6 @@ import Tabs, { Tab } from "material-ui/Tabs";
 import Typography from "material-ui/Typography";
 import AppBar from "material-ui/AppBar";
 import Card, { CardContent } from "material-ui/Card";
-import ReactMarkdown from "react-markdown";
 
 import FavoriteIcon from "material-ui-icons/Favorite";
 import FavoriteBorderIcon from "material-ui-icons/FavoriteBorder";
@@ -20,7 +21,6 @@ import ContributorsIcon from "material-ui-icons/Group";
 import CardMatrix from "./CardMatrix";
 import SourceFiles from "./SourceFiles";
 
-import MarkMirror from "react-markmirror";
 
 export const ProjectTags = props => {
   return (
@@ -199,14 +199,8 @@ export const ProjectContent = props => {
       </AppBar>
       <SwipeableViews index={props.tabIndex} onChangeIndex={props.onTabChange}>
         <div>
-<<<<<<< HEAD
           <ProjectMarkDown />
           {/* <ReactMarkdown source={props.description} /> */}
-=======
-          <ReactMarkdown 
-          // style={{ margin: "2em" }} 
-          source={props.description} />
->>>>>>> aad0fba3c0ff2d128485c53f59189d882eb5829d
         </div>
         <SourceFiles files={props.files} />
         <div>
