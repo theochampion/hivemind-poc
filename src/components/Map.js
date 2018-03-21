@@ -11,7 +11,9 @@ export default class Map extends React.Component {
   componentDidMount() {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: "mapbox://styles/mapbox/streets-v9"
+      style: "mapbox://styles/mapbox/streets-v9",
+      center: this.props.startPos || [2.3412, 48.8575],
+      zoom: this.props.startPos ? 15 : 11
     });
 
     this.map.on("load", () => {
