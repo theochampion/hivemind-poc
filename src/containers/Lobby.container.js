@@ -68,7 +68,7 @@ class Lobby extends Component {
     return (
       <div>
         {this.state.selectedHive && (
-          <Card className={classes.hivecard}>
+          <Card className={classes.hivecard} onClick={() => history.push("/hive")}>
             {/* <CardMedia className={classes.media} image={card.img} /> */}
 
             <CardContent>
