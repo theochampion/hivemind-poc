@@ -155,6 +155,7 @@ export const ProjectConversation = props => {
         id="name"
         label="Message"
         style={{ width: "100%", marginBottom: "1em" }}
+        onKeyDown={props.onNewMessage}
       />
     </div>
   );
@@ -207,7 +208,7 @@ export const ProjectContent = props => {
           <ProjectCards cards={props.cards} />
         </div>
         <div>
-          <ProjectConversation messages={props.messages} />
+          <ProjectConversation messages={props.messages} onNewMessage={props.onNewMessage}/>
         </div>
       </SwipeableViews>
     </div>
